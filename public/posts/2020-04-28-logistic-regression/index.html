@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>Logistic Regression - Sudheer</title><meta name="Description" content="Cole Killian"><meta property="og:title" content="Logistic Regression" />
+<meta property="og:description" content="Introduction Logistic regression uses the logistic sigmoid function to return a probability value from feature variables.
+How logistic regression works ?
+Examples A person is obese or not ? Does Mr A has cancer ? Will this team win the match today ? Email is spam or not ? Why not linear regression Linear regression predicts output as continuous range from $-\infty$ to $&#43;\infty$. But we are predicting discrete values like 0 and 1 in case of logistic regression." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2020-04-28-logistic-regression/" /><meta property="og:image" content="/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-04-28T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-04-28T00:00:00+00:00" /><meta property="og:site_name" content="Cole Killian" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/logo.png"/>
+
+<meta name="twitter:title" content="Logistic Regression"/>
+<meta name="twitter:description" content="Introduction Logistic regression uses the logistic sigmoid function to return a probability value from feature variables.
+How logistic regression works ?
+Examples A person is obese or not ? Does Mr A has cancer ? Will this team win the match today ? Email is spam or not ? Why not linear regression Linear regression predicts output as continuous range from $-\infty$ to $&#43;\infty$. But we are predicting discrete values like 0 and 1 in case of logistic regression."/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/2020-04-28-logistic-regression/" /><link rel="next" href="/posts/2020-05-02-statistics/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Logistic Regression",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/2020-04-28-logistic-regression\/"
+        },"genre": "posts","keywords": "ml","wordcount":  1201 ,
+        "url": "\/posts\/2020-04-28-logistic-regression\/","datePublished": "2020-04-28T00:00:00+00:00","dateModified": "2020-04-28T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Sudheer">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/projects-and-exp/"> Projects &amp; Experience </a><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/book-notes/"> Book Notes </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Sudheer">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/projects-and-exp/" title="">Projects &amp; Experience</a><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/book-notes/" title="">Book Notes</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">Logistic Regression</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span>&nbsp;<span class="post-category">included in <a href="/categories/ml/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ml</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="Apr, 28 2020">Apr, 28 2020</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;1201 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;6 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#odds-and-log-odds">Odds and Log Odds</a></li>
+        <li><a href="#lets-plot-log-and-log-odds-functions">Lets plot log and log odds functions</a></li>
+        <li><a href="#logit-function">Logit function</a></li>
+      </ul>
+    </li>
+    <li><a href="#sigmoid-function">Sigmoid function</a>
+      <ul>
+        <li><a href="#bernoulli-distribution">Bernoulli Distribution</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#minimize-cost-function">Minimize cost function</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><h1 id="introduction">Introduction</h1>
+<p>Logistic regression uses the logistic sigmoid function to return a probability value from feature variables.</p>
+<p>How logistic regression works ?</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://kroki.io/blockdiag/svg/eNpNjUEKAjEMRfdzipC9Jxh0Iy4F9-Ki08YSGhtpK0MR727VGenuh_fy_yRqg2Pj4TkAHNWRwGYHh1z4Zgp9Mp4SObYF29GcvZic-VrH4f9wtiqaYAvoE1GsJKIzXsYm4NqEnXXnGBa8tvVYk4mefgIs49DxHOokj6_wegN_eTvD"
+        data-srcset="https://kroki.io/blockdiag/svg/eNpNjUEKAjEMRfdzipC9Jxh0Iy4F9-Ki08YSGhtpK0MR727VGenuh_fy_yRqg2Pj4TkAHNWRwGYHh1z4Zgp9Mp4SObYF29GcvZic-VrH4f9wtiqaYAvoE1GsJKIzXsYm4NqEnXXnGBa8tvVYk4mefgIs49DxHOokj6_wegN_eTvD, https://kroki.io/blockdiag/svg/eNpNjUEKAjEMRfdzipC9Jxh0Iy4F9-Ki08YSGhtpK0MR727VGenuh_fy_yRqg2Pj4TkAHNWRwGYHh1z4Zgp9Mp4SObYF29GcvZic-VrH4f9wtiqaYAvoE1GsJKIzXsYm4NqEnXXnGBa8tvVYk4mefgIs49DxHOokj6_wegN_eTvD 1.5x, https://kroki.io/blockdiag/svg/eNpNjUEKAjEMRfdzipC9Jxh0Iy4F9-Ki08YSGhtpK0MR727VGenuh_fy_yRqg2Pj4TkAHNWRwGYHh1z4Zgp9Mp4SObYF29GcvZic-VrH4f9wtiqaYAvoE1GsJKIzXsYm4NqEnXXnGBa8tvVYk4mefgIs49DxHOokj6_wegN_eTvD 2x"
+        data-sizes="auto"
+        alt="https://kroki.io/blockdiag/svg/eNpNjUEKAjEMRfdzipC9Jxh0Iy4F9-Ki08YSGhtpK0MR727VGenuh_fy_yRqg2Pj4TkAHNWRwGYHh1z4Zgp9Mp4SObYF29GcvZic-VrH4f9wtiqaYAvoE1GsJKIzXsYm4NqEnXXnGBa8tvVYk4mefgIs49DxHOokj6_wegN_eTvD"
+        title="https://kroki.io/blockdiag/svg/eNpNjUEKAjEMRfdzipC9Jxh0Iy4F9-Ki08YSGhtpK0MR727VGenuh_fy_yRqg2Pj4TkAHNWRwGYHh1z4Zgp9Mp4SObYF29GcvZic-VrH4f9wtiqaYAvoE1GsJKIzXsYm4NqEnXXnGBa8tvVYk4mefgIs49DxHOokj6_wegN_eTvD" /></p>
+<h1 id="examples">Examples</h1>
+<ul>
+<li>A person is obese or not ?</li>
+<li>Does Mr A has cancer ?</li>
+<li>Will this team win the match today ?</li>
+<li>Email is spam or not ?</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/8268939/80929921-b9b34100-8d64-11ea-9f91-166187ab360c.jpeg"
+        data-srcset="https://user-images.githubusercontent.com/8268939/80929921-b9b34100-8d64-11ea-9f91-166187ab360c.jpeg, https://user-images.githubusercontent.com/8268939/80929921-b9b34100-8d64-11ea-9f91-166187ab360c.jpeg 1.5x, https://user-images.githubusercontent.com/8268939/80929921-b9b34100-8d64-11ea-9f91-166187ab360c.jpeg 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/8268939/80929921-b9b34100-8d64-11ea-9f91-166187ab360c.jpeg"
+        title="5A828DBD-A9A7-41E3-B3A6-D2CFFFDE98DC" /></p>
+<h1 id="why-not-linear-regression">Why not linear regression</h1>
+<ul>
+<li>Linear regression predicts output as continuous range from $-\infty$ to $+\infty$. But we are predicting discrete values like 0 and 1 in case of logistic regression.</li>
+<li>Moreover we can&rsquo;t map all the output values onto a straight line as in case of linear function. There is huge chance that we miss predictions as shown in figure below</li>
+</ul>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/8268939/80929411-a30aeb00-8d60-11ea-917b-29bef2fa6c07.jpeg"
+        data-srcset="https://user-images.githubusercontent.com/8268939/80929411-a30aeb00-8d60-11ea-917b-29bef2fa6c07.jpeg, https://user-images.githubusercontent.com/8268939/80929411-a30aeb00-8d60-11ea-917b-29bef2fa6c07.jpeg 1.5x, https://user-images.githubusercontent.com/8268939/80929411-a30aeb00-8d60-11ea-917b-29bef2fa6c07.jpeg 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/8268939/80929411-a30aeb00-8d60-11ea-917b-29bef2fa6c07.jpeg"
+        title="A1B249F9-F2A6-40F0-80C5-8AD36E738439" /></p>
+<p>In logistic regression, the output of linear regression is passed to a sigmoid funtion to convert the predicted continuous to discrete categorical values.</p>
+<h1 id="linear-regression">Linear Regression</h1>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cblxuICBcbiAgXG4gIFxuICBcbiAgXG5cdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifX0"
+        data-srcset="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cblxuICBcbiAgXG4gIFxuICBcbiAgXG5cdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifX0, https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cblxuICBcbiAgXG4gIFxuICBcbiAgXG5cdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifX0 1.5x, https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cblxuICBcbiAgXG4gIFxuICBcbiAgXG5cdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifX0 2x"
+        data-sizes="auto"
+        alt="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cblxuICBcbiAgXG4gIFxuICBcbiAgXG5cdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifX0"
+        title="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cblxuICBcbiAgXG4gIFxuICBcbiAgXG5cdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifX0" /></p>
+<h1 id="logistic-regression">Logistic Regression</h1>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cbiAgQyAtLT4gRCgoU2lnbW9pZCkpXG5cbiAgXG4gIFxuICBcbiAgXG4gIFxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJuZXV0cmFsIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9"
+        data-srcset="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cbiAgQyAtLT4gRCgoU2lnbW9pZCkpXG5cbiAgXG4gIFxuICBcbiAgXG4gIFxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJuZXV0cmFsIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9, https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cbiAgQyAtLT4gRCgoU2lnbW9pZCkpXG5cbiAgXG4gIFxuICBcbiAgXG4gIFxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJuZXV0cmFsIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9 1.5x, https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cbiAgQyAtLT4gRCgoU2lnbW9pZCkpXG5cbiAgXG4gIFxuICBcbiAgXG4gIFxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJuZXV0cmFsIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9 2x"
+        data-sizes="auto"
+        alt="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cbiAgQyAtLT4gRCgoU2lnbW9pZCkpXG5cbiAgXG4gIFxuICBcbiAgXG4gIFxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJuZXV0cmFsIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9"
+        title="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggTFJcbiAgeDEoKHhfMSkpIC0tPiB8dzF8IEIoKFN1bSkpXG4gIHgyKCh4MikpIC0tPiB8dzJ8IEJcbiAgeDMoKHgzKSkgLS0-IHx3M3wgQlxuICBCIC0tPiBDW3gxdzEgKyB4MncyICsgeDN3MyArIC4uLl1cbiAgQyAtLT4gRCgoU2lnbW9pZCkpXG5cbiAgXG4gIFxuICBcbiAgXG4gIFxuXHRcdCIsIm1lcm1haWQiOnsidGhlbWUiOiJuZXV0cmFsIn0sInVwZGF0ZUVkaXRvciI6ZmFsc2V9" /></p>
+<p>Let&rsquo;s see the differences between Linear and Logistic</p>
+<p>$\begin{array}{l|l|l}
+\hline &amp; \text { Linear } &amp; \text { Logistic } \
+\hline \text { Target Variables } &amp; \text { Continuous } &amp; \text { Categorical } \
+\hline \text { Problem Type } &amp; \text { Regression } &amp; \text { Classification } \
+\hline \text { Hypothesis } &amp; \theta^{T} x &amp; sigmoid\left(\theta^{T} x\right) \
+\hline \text { Loss } &amp; \text { Mean Squared } &amp; \text { Logistic } \
+\end{array}$</p>
+<h1 id="types">Types</h1>
+<ul>
+<li><strong>Binary:</strong> Output dependent variabels mapped to 2 categorical values</li>
+<li><strong>Multinomial:</strong> Three or more categorical values for classification</li>
+<li><strong>Ordinal:</strong> Three or more categorical values with ordering</li>
+</ul>
+<h1 id="math-intro">Math intro</h1>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/8268939/80930525-ee28fc00-8d68-11ea-9195-2420b7fb3813.jpeg"
+        data-srcset="https://user-images.githubusercontent.com/8268939/80930525-ee28fc00-8d68-11ea-9195-2420b7fb3813.jpeg, https://user-images.githubusercontent.com/8268939/80930525-ee28fc00-8d68-11ea-9195-2420b7fb3813.jpeg 1.5x, https://user-images.githubusercontent.com/8268939/80930525-ee28fc00-8d68-11ea-9195-2420b7fb3813.jpeg 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/8268939/80930525-ee28fc00-8d68-11ea-9195-2420b7fb3813.jpeg"
+        title="3F6FE2A8-A53B-476F-9E9C-CBB4B6217102" /></p>
+<h3 id="odds-and-log-odds">Odds and Log Odds</h3>
+<p>Since the goal of logistic function is to map linear combination of input variabels into a probability, we need a link to map linear combination to probability, and that link is logit function. Before knowing about logit functions, let&rsquo;s see what odds, log odds and odds ratio mean.</p>
+<h4 id="odds">Odds</h4>
+<p>$\begin{aligned}
+\operatorname{odds}(Y=1) &amp;=\frac{P(Y=1)}{P(Y=0)}=\frac{P(Y=1)}{1-P(Y=1)} \
+&amp;=\frac{p}{1-p} = \frac{Probability of event happening}{Probability of event not happening}
+\end{aligned}$</p>
+<p>Lets check the odds for a sample data</p>
+<pre tabindex="0"><code>import pandas as pd
+
+data = [[&#39;CS&#39;, &#39;Dropout&#39;], [&#39;EE&#39;, &#39;Graduated&#39;], [&#39;CS&#39;, &#39;Dropout&#39;], [&#39;CS&#39;, &#39;Graduated&#39;], [&#39;EE&#39;, &#39;Dropout&#39;], [&#39;CS&#39;, &#39;Dropout&#39;], [&#39;CS&#39;, &#39;Dropout&#39;],[&#39;EE&#39;,&#39;Graduated&#39;]] 
+df = pd.DataFrame(data, columns = [&#39;Branch&#39;, &#39;Status&#39;])
+
+pd.crosstab(index=df[&#39;Branch&#39;], columns= df[&#39;Status&#39;], margins=True)
+</code></pre><!-- raw HTML omitted -->
+<pre><code>.dataframe tbody tr th {
+    vertical-align: top;
+}
+
+.dataframe thead th {
+    text-align: right;
+}
+</code></pre>
+<p><!-- raw HTML omitted --></p>
+<!-- raw HTML omitted -->
+<pre tabindex="0"><code># odds of cs graduated
+odds_cs_grad = (1/5)/(4/5)  # p/(1-p)
+print(&#34;odds of cs graduated {}&#34;.format(odds_cs))
+</code></pre><pre><code>odds of cs graduated 0.25
+</code></pre>
+<pre tabindex="0"><code># odds of EE graduated
+odds_ee = (2/3)/(1/3) # p/(1-p)
+print(&#34;odds of ee graduated {}&#34;.format(odds_ee))
+</code></pre><pre><code>odds of ee graduated 2.0
+</code></pre>
+<pre tabindex="0"><code># Odds ratio 
+
+odds_ratio = odds_ee/odds_cs
+print(&#34;odds ratio of ee to cs is {}&#34;.format(odds_ratio))
+
+print(&#34;A EE student is {} times likely to graduate than CS&#34;.format(odds_ratio))
+</code></pre><pre><code>odds ratio of ee to cs is 8.0
+A EE student is 8.0 times likely to graduate than CS
+</code></pre>
+<h3 id="lets-plot-log-and-log-odds-functions">Lets plot log and log odds functions</h3>
+<pre tabindex="0"><code>import matplotlib.pyplot as plt
+import numpy as np
+
+%matplotlib inline
+%config InlineBackend.figure_format = &#39;retina&#39;
+
+def odds(p):
+    return p / (1 - p)
+
+def log_odds(p):
+    return np.log(p / (1 - p))
+
+x = np.arange(0.01, 1, 0.05)
+odds_x = odds(x)
+
+log_odds_x = log_odds(x)
+
+fig, axes = plt.subplots(nrows=1, ncols=2, figsize=(10, 4))
+plt.axvline(0)
+plt.axhline(0)
+axes[0].plot(x, odds_x)
+axes[0].set_title(&#34;odds function&#34;)
+axes[0].set(xlabel=&#34;x&#34;, ylabel=&#34;odds&#34;)
+axes[1].plot(x, log_odds_x)
+axes[1].set_title(&#34;log odds function&#34;)
+axes[1].set(xlabel=&#34;x&#34;, ylabel=&#34;log_odds&#34;)
+fig.tight_layout()
+</code></pre><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_13_0.png"
+        data-srcset="assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_13_0.png, assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_13_0.png 1.5x, assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_13_0.png 2x"
+        data-sizes="auto"
+        alt="assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_13_0.png"
+        title="png" /></p>
+<h3 id="logit-function">Logit function</h3>
+<p>$\operatorname{logit}(p)=\log \left(\frac{P}{1-P}\right), \text { for } 0 \leq p \leq 1$</p>
+<p>This logit function is what we are trying to equate it to our linear combination of input variables.</p>
+<p>$\log(\frac{P}{1-P}) = \theta_1  x_i + \theta_0$</p>
+<p>$P = \frac{1}{1+e^(\theta_1 x_i + \theta_0)}$ This exactly looks like sigmoid function which we will study below.</p>
+<p>$P$ = probability of success</p>
+<p>$-\infty \leq x_i \leq \infty$;</p>
+<h2 id="sigmoid-function">Sigmoid function</h2>
+<p>Sigmoid function is used in the logistic regression to map infinite values into a finite discrete target values.</p>
+<p>Equation of sigmoid function is $g(z)=\frac{1}{1+e^{-z}}$</p>
+<p>The function is plotted below</p>
+<p>$\begin{aligned}
+&amp;\lim _{x \rightarrow \infty} g(z)=1\
+&amp;\lim _{x \rightarrow-\infty} g(z)=0
+\end{aligned}$</p>
+<p>Interesting thing about sigmoid function is, even the derivative of it can be expressed as the function itself. The first order derivate of sigmoid function is $\frac{d g(z)}{d z}=g(z)[1-g(z)]$</p>
+<pre tabindex="0"><code>import numpy as np 
+import matplotlib.pyplot as plt
+%matplotlib inline
+
+z = np.linspace (-10,10,100)
+
+# sigmoid function
+def sigmoid(z):
+    return 1 / (1 + np.exp(-z))
+
+plt.figure(figsize=(10,6))
+plt.plot(z,sigmoid(z))
+plt.xlim([-10,10])
+plt.ylim([-0.1,1.1])
+plt.axvline(0)
+plt.axhline(0)
+plt.xlabel(&#39;z&#39;);
+plt.ylabel(&#39;g(z)&#39;)
+plt.title(&#39;Sigmoid function&#39;);
+plt. show ( )
+</code></pre><p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_16_0.png"
+        data-srcset="assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_16_0.png, assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_16_0.png 1.5x, assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_16_0.png 2x"
+        data-sizes="auto"
+        alt="assets/images/28_04_2020_logistic_regression_files/28_04_2020_logistic_regression_16_0.png"
+        title="png" /></p>
+<h3 id="bernoulli-distribution">Bernoulli Distribution</h3>
+<p>We need to get some basics of Bernoulli Distribution here. Bernoulli says</p>
+<p>$f_{\text {Bernoulli}}=\left{\begin{array}{ll}
+1-P ; &amp; \text { for } n=0 \
+P ; \quad \text   { for } n=1
+\end{array}\right.$</p>
+<p>where $n = 0$ is failure event and $n = 1$ is a successful event.</p>
+<h1 id="hypothesis">Hypothesis</h1>
+<p>This equation takes the featurs (x) and parameters ($\theta$) as input and predicts the output dependent variable.</p>
+<p>The weighted combination of input variables is &hellip;
+$\theta_{1} \cdot x_{1}+\theta_{2} \cdot x_{2}+\ldots+\theta_{n} \cdot x_{n}$</p>
+<p>Writing the above function in linear algebra from &hellip;</p>
+<p>$\sum_{i=1}^{m} \theta_{i} x_{i}=\theta^{T} x$</p>
+<p>Lets write this in matrix form</p>
+<p>$\left[\begin{array}{c}
+\theta_{1} \
+\theta_{2} \
+\cdot \
+\cdot \
+\theta_{n}
+\end{array}\right]^{T} \cdot\left[\begin{array}{c}
+x_{1} \
+x_{2} \
+\cdot \
+\cdot \
+x_{n}
+\end{array}\right]=\left[\begin{array}{cccc}
+\theta_{1} &amp; \theta_{2} \ldots \theta_{n}
+\end{array}\right] \cdot\left[\begin{array}{c}
+x_{1} \
+x_{2} \
+\cdot \
+\cdot \
+\cdot \
+x_{n}
+\end{array}\right]=\theta_{1} x_{1}+\theta_{2} x_{2}+\ldots+\theta_{n} x_{n}$</p>
+<p>If we pass this equation to sigmoid function &hellip;.</p>
+<p>$P\left(\theta^{T} x\right)=g\left(\theta^{T} x\right) = \frac{1}{1+e^{-\theta^{T} x}}$</p>
+<p>where $P\left(\theta^{T} x\right) = h_{\theta}(x)$ and $g()$ is called sigmoid function.</p>
+<p>Now the hypothesis can be written as $h_{\theta}(x)=\frac{1}{1+e^{-\theta^{T} x}}$</p>
+<p>where $h_{\Theta}(x)=P(Y=1 | X ; \theta )$</p>
+<p>In words Probability that $Y=1$ for features $X$ with co-efficients $\theta$</p>
+<h1 id="cost-function">Cost Function</h1>
+<p>we can&rsquo;t use the cost function Sum of Squared errors (SSE) in logistic regression as it would give convex graph and we will get lot of local minima and makes it very difficult to reach to a point of global minima.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/8268939/80727106-2820a680-8aba-11ea-9188-6ef7a650e79d.jpeg"
+        data-srcset="https://user-images.githubusercontent.com/8268939/80727106-2820a680-8aba-11ea-9188-6ef7a650e79d.jpeg, https://user-images.githubusercontent.com/8268939/80727106-2820a680-8aba-11ea-9188-6ef7a650e79d.jpeg 1.5x, https://user-images.githubusercontent.com/8268939/80727106-2820a680-8aba-11ea-9188-6ef7a650e79d.jpeg 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/8268939/80727106-2820a680-8aba-11ea-9188-6ef7a650e79d.jpeg"
+        title="017B613F-8ACD-4337-997D-4599CA4F7122" /></p>
+<p>In linear regression, we have used Sum of squared errors (SSE) for calculating cost. In logistic regression we use slightly different approach. Suppose if a function predicts sucess % of 90 and seem to be a failure, we penalize it heavily than 30% probability prediction.</p>
+<p>So for logistic regression, we go for a logarithemic cost function as below. The log cost function penalizes confident and wrong predictions heavily</p>
+<p>$\operatorname{cost}\left(h_{\theta}(x), y\right)=\left{\begin{array}{ll}
+-\log \left(h_{\theta}(x)\right) &amp; \text { if } y=1 \
+-\log \left(1-h_{\theta}(x)\right) &amp; \text { if } y=0
+\end{array}\right.$</p>
+<p>if we convert the above to one liner &hellip;</p>
+<p>$\operatorname{cost}\left(h_{\theta}(x), y\right)=-y \log \left(h_{\theta}(x)\right)-(1-y) \log \left(1-h_{\theta}(x)\right)$</p>
+<p>Finally the cost function for all the values will be</p>
+<p>$\begin{aligned}
+J(\theta) &amp;=\frac{1}{m} \sum_{i=1}^{m} \operatorname{cost}\left(h_{\theta}\left(x^{(i)}\right), y^{(i)}\right) \
+&amp;=-\frac{1}{m}\left[\sum_{i=1}^{m} y^{(i)} \log \left(h_{\theta}\left(x^{(i)}\right)\right)+\left(1-y^{(i)}\right) \log \left(1-h_{\theta}\left(x^{(i)}\right)\right)\right]
+\end{aligned}$</p>
+<h3 id="minimize-cost-function">Minimize cost function</h3>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://kroki.io/blockdiag/svg/eNp1jkEKwkAMRfc9RZi9Jyi66coDuBIXcSaOoUNS0mip4t2lVCiUun083v_XorFNjBneFUA4Cjtj4RfBQJzv3gfYHSB0Romjg6NlcniizbzBAo32DreHRGeVGZ-6hL5KbKTratrcaJyjFjXYQ8hGJCOVokO41P8uLn7H0v7E9YlFUkPJNGmfL0pNU8w="
+        data-srcset="https://kroki.io/blockdiag/svg/eNp1jkEKwkAMRfc9RZi9Jyi66coDuBIXcSaOoUNS0mip4t2lVCiUun083v_XorFNjBneFUA4Cjtj4RfBQJzv3gfYHSB0Romjg6NlcniizbzBAo32DreHRGeVGZ-6hL5KbKTratrcaJyjFjXYQ8hGJCOVokO41P8uLn7H0v7E9YlFUkPJNGmfL0pNU8w=, https://kroki.io/blockdiag/svg/eNp1jkEKwkAMRfc9RZi9Jyi66coDuBIXcSaOoUNS0mip4t2lVCiUun083v_XorFNjBneFUA4Cjtj4RfBQJzv3gfYHSB0Romjg6NlcniizbzBAo32DreHRGeVGZ-6hL5KbKTratrcaJyjFjXYQ8hGJCOVokO41P8uLn7H0v7E9YlFUkPJNGmfL0pNU8w= 1.5x, https://kroki.io/blockdiag/svg/eNp1jkEKwkAMRfc9RZi9Jyi66coDuBIXcSaOoUNS0mip4t2lVCiUun083v_XorFNjBneFUA4Cjtj4RfBQJzv3gfYHSB0Romjg6NlcniizbzBAo32DreHRGeVGZ-6hL5KbKTratrcaJyjFjXYQ8hGJCOVokO41P8uLn7H0v7E9YlFUkPJNGmfL0pNU8w= 2x"
+        data-sizes="auto"
+        alt="https://kroki.io/blockdiag/svg/eNp1jkEKwkAMRfc9RZi9Jyi66coDuBIXcSaOoUNS0mip4t2lVCiUun083v_XorFNjBneFUA4Cjtj4RfBQJzv3gfYHSB0Romjg6NlcniizbzBAo32DreHRGeVGZ-6hL5KbKTratrcaJyjFjXYQ8hGJCOVokO41P8uLn7H0v7E9YlFUkPJNGmfL0pNU8w="
+        title="https://kroki.io/blockdiag/svg/eNp1jkEKwkAMRfc9RZi9Jyi66coDuBIXcSaOoUNS0mip4t2lVCiUun083v_XorFNjBneFUA4Cjtj4RfBQJzv3gfYHSB0Romjg6NlcniizbzBAo32DreHRGeVGZ-6hL5KbKTratrcaJyjFjXYQ8hGJCOVokO41P8uLn7H0v7E9YlFUkPJNGmfL0pNU8w=" /></p>
+<p>use gradient descent to minimize the cost function</p>
+<p>$\frac{\partial J(\theta)}{\partial \theta_{j}}=\frac{1}{m} \sum_{i=1}^{m}\left(h\left(x^{i}\right)-y^{i}\right) x_{j}^{i}$</p>
+<pre tabindex="0"><code>def costFunction(theta, X, y):
+    &#34;&#34;&#34;
+    Compute cost and gradient for logistic regression. 
+    
+    Parameters
+    -------------------------------------
+    theta : weight vector of shape (n+1, )
+    X : input of shape (m x n+1) m: no of training ex, n:no of features
+    y : predicted y (m, ).
+    
+    Returns
+    -------------------------------------
+    cost : value of cost function
+    grad : vector of shape (n+1, ) -&gt; gradient of the cost fun wrt weights
+    &#34;&#34;&#34;
+    m = X.shape[0]  # number of training examples
+
+    # initialize Returns
+    cost = 0
+    grads = np.zeros(theta.shape)
+    
+    #Prediction
+    sigmoid_result = sigmoid(x.dot(theta))
+    Y_T = y.T
+    cost = (-1/m)*(np.sum((Y_T*np.log(sigmoid_result)) + ((1-Y_T)*(np.log(1-sigmoid_result)))))
+    #
+    
+    #Gradient calculation
+    dw = (1/m)*(np.dot(X.T, (sigmoid_result-Y.T).T))
+    db = (1/m)*(np.sum(sigmoid_result-Y.T))
+    
+    grads = {&#34;dw&#34;: dw, &#34;db&#34;: db}
+    
+    return cost, grads
+</code></pre></div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on Apr, 28 2020</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/2020-04-28-logistic-regression/" data-title="Logistic Regression" data-hashtags="ml"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="/posts/2020-04-28-logistic-regression/" data-hashtag="ml"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="/posts/2020-04-28-logistic-regression/" data-title="Logistic Regression"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="/posts/2020-04-28-logistic-regression/" data-title="Logistic Regression"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="/posts/2020-04-28-logistic-regression/" data-title="Logistic Regression"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/ml/">ml</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav">
+            <a href="/posts/2020-05-02-statistics/" class="next" rel="next" title="Statistics for Machine Learning">Statistics for Machine Learning<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

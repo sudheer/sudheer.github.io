@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="robots" content="noodp" />
+        <title>K means clustering - Sudheer</title><meta name="Description" content="Cole Killian"><meta property="og:title" content="K means clustering" />
+<meta property="og:description" content="Clustering is the process of dividing the entire data into groups.
+How k means work Error Equation for optmization Assume we have points $X = {x_1, x_2&hellip; x_n}$
+Clusters $S = {s_1, s_2, &hellip; , s_k}$
+where $\mu_i$ is mean of centroid $s_i$
+Optimization criteria WCSS (within cluster sum of squares) is ..
+$\sum_{i=1}^{k} \sum_{x \in S_{i}}\left|x_{i-\mu_{i}}\right|^{2}$
+Complexity Time Each Round: O(kN) for N points, k clusters
+For i (I) rounds: O(IkN)" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/posts/2020-05-22-k-means/" /><meta property="og:image" content="/logo.png"/><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2020-05-02T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-05-02T00:00:00+00:00" /><meta property="og:site_name" content="Cole Killian" />
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:image" content="/logo.png"/>
+
+<meta name="twitter:title" content="K means clustering"/>
+<meta name="twitter:description" content="Clustering is the process of dividing the entire data into groups.
+How k means work Error Equation for optmization Assume we have points $X = {x_1, x_2&hellip; x_n}$
+Clusters $S = {s_1, s_2, &hellip; , s_k}$
+where $\mu_i$ is mean of centroid $s_i$
+Optimization criteria WCSS (within cluster sum of squares) is ..
+$\sum_{i=1}^{k} \sum_{x \in S_{i}}\left|x_{i-\mu_{i}}\right|^{2}$
+Complexity Time Each Round: O(kN) for N points, k clusters
+For i (I) rounds: O(IkN)"/>
+<meta name="application-name" content="My cool site">
+<meta name="apple-mobile-web-app-title" content="My cool site"><meta name="theme-color" content="#ffffff"><meta name="msapplication-TileColor" content="#da532c"><link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"><link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5"><link rel="manifest" href="/site.webmanifest"><link rel="canonical" href="/posts/2020-05-22-k-means/" /><link rel="prev" href="/posts/2020-05-02-statistics/" /><link rel="next" href="/posts/2020-05-21-svm/" /><link rel="stylesheet" href="/css/style.min.css"><link rel="preload" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.1.1/css/all.min.css"></noscript><link rel="preload" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+        <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@4.1.1/animate.min.css"></noscript><script type="application/ld+json">
+    {
+        "@context": "http://schema.org",
+        "@type": "BlogPosting",
+        "headline": "K means clustering",
+        "inLanguage": "en",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "\/posts\/2020-05-22-k-means\/"
+        },"genre": "posts","keywords": "ml","wordcount":  285 ,
+        "url": "\/posts\/2020-05-22-k-means\/","datePublished": "2020-05-02T00:00:00+00:00","dateModified": "2020-05-02T00:00:00+00:00","publisher": {
+            "@type": "Organization",
+            "name": ""},"author": {
+                "@type": "Person",
+                "name": "Author"
+            },"description": ""
+    }
+    </script></head>
+    <body data-header-desktop="fixed" data-header-mobile="auto"><script type="text/javascript">(window.localStorage && localStorage.getItem('theme') ? localStorage.getItem('theme') === 'dark' : ('auto' === 'auto' ? window.matchMedia('(prefers-color-scheme: dark)').matches : 'auto' === 'dark')) && document.body.setAttribute('theme', 'dark');</script>
+
+        <div id="mask"></div><div class="wrapper"><header class="desktop" id="header-desktop">
+    <div class="header-wrapper">
+        <div class="header-title">
+            <a href="/" title="Sudheer">My cool site</a>
+        </div>
+        <div class="menu">
+            <div class="menu-inner"><a class="menu-item" href="/about/"> About </a><a class="menu-item" href="/projects-and-exp/"> Projects &amp; Experience </a><a class="menu-item" href="/posts/"> Posts </a><a class="menu-item" href="/tags/"> Tags </a><a class="menu-item" href="/categories/"> Categories </a><a class="menu-item" href="/book-notes/"> Book Notes </a><span class="menu-item delimiter"></span><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                    <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+                </a></div>
+        </div>
+    </div>
+</header><header class="mobile" id="header-mobile">
+    <div class="header-container">
+        <div class="header-wrapper">
+            <div class="header-title">
+                <a href="/" title="Sudheer">My cool site</a>
+            </div>
+            <div class="menu-toggle" id="menu-toggle-mobile">
+                <span></span><span></span><span></span>
+            </div>
+        </div>
+        <div class="menu" id="menu-mobile"><a class="menu-item" href="/about/" title="">About</a><a class="menu-item" href="/projects-and-exp/" title="">Projects &amp; Experience</a><a class="menu-item" href="/posts/" title="">Posts</a><a class="menu-item" href="/tags/" title="">Tags</a><a class="menu-item" href="/categories/" title="">Categories</a><a class="menu-item" href="/book-notes/" title="">Book Notes</a><a href="javascript:void(0);" class="menu-item theme-switch" title="Switch Theme">
+                <i class="fas fa-adjust fa-fw" aria-hidden="true"></i>
+            </a></div>
+    </div>
+</header><main class="main">
+                <div class="container"><div class="toc" id="toc-auto">
+            <h2 class="toc-title">Contents</h2>
+            <div class="toc-content" id="toc-content-auto"></div>
+        </div><article class="page single"><h1 class="single-title animate__animated animate__flipInX">K means clustering</h1><div class="post-meta">
+            <div class="post-meta-line"><span class="post-author"><a href="/" title="Author" rel="author" class="author"><i class="fas fa-user-circle fa-fw" aria-hidden="true"></i>Author</a></span>&nbsp;<span class="post-category">included in <a href="/categories/ml/"><i class="far fa-folder fa-fw" aria-hidden="true"></i>ml</a></span></div>
+            <div class="post-meta-line"><i class="far fa-calendar-alt fa-fw" aria-hidden="true"></i>&nbsp;<time datetime="May, 2 2020">May, 2 2020</time>&nbsp;<i class="fas fa-pencil-alt fa-fw" aria-hidden="true"></i>&nbsp;285 words&nbsp;
+                <i class="far fa-clock fa-fw" aria-hidden="true"></i>&nbsp;2 minutes&nbsp;</div>
+        </div><div class="details toc" id="toc-static"  data-kept="">
+                <div class="details-summary toc-title">
+                    <span>Contents</span>
+                    <span><i class="details-icon fas fa-angle-right" aria-hidden="true"></i></span>
+                </div>
+                <div class="details-content toc-content" id="toc-content-static"><nav id="TableOfContents">
+  <ul>
+    <li><a href="#time">Time</a></li>
+    <li><a href="#space">Space</a></li>
+  </ul>
+</nav></div>
+            </div><div class="content" id="content"><p>Clustering is the process of dividing the entire data into groups.</p>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://user-images.githubusercontent.com/8268939/82712197-59fdd680-9c3c-11ea-8536-7f0251b7161c.png"
+        data-srcset="https://user-images.githubusercontent.com/8268939/82712197-59fdd680-9c3c-11ea-8536-7f0251b7161c.png, https://user-images.githubusercontent.com/8268939/82712197-59fdd680-9c3c-11ea-8536-7f0251b7161c.png 1.5x, https://user-images.githubusercontent.com/8268939/82712197-59fdd680-9c3c-11ea-8536-7f0251b7161c.png 2x"
+        data-sizes="auto"
+        alt="https://user-images.githubusercontent.com/8268939/82712197-59fdd680-9c3c-11ea-8536-7f0251b7161c.png"
+        title="image" /></p>
+<h1 id="how-k-means-work">How k means work</h1>
+<p><a href="https://mermaid-js.github.io/mermaid-live-editor/#/edit/eyJjb2RlIjoiZ3JhcGggVERcblx0QVtTdGFydF0gLS0-IEJbL051bWJlciBvZiBjbHVzdGVycywgay9dXG5cdEIgLS0-IENbY2FsY3VsYXRlIGNlbnRyb2lkXVxuXHRDIC0tPiBEW2NhbGN1bGF0ZSBkaXN0YW5jZXMgdG8gY2VudHJvaWRdXG5cdEQgLS0-IEVbZmE6ZmEtb2JqZWN0LWdyb3VwIEdyb3VwIGJhc2VkIG9uIG1pbiBkaXN0YW5jZV1cbiAgICBFIC0tPiBGe0NvbnZlcmdlbmNlID99XG4gICAgRiAtLT4gfFllc3wgRW5kXG4gICAgRiAtLT4gfE5PfCBDXG5cdFx0XHRcdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0" target="_blank" rel="noopener noreffer "><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcblx0QVtTdGFydF0gLS0-IEJbL051bWJlciBvZiBjbHVzdGVycywgay9dXG5cdEIgLS0-IENbY2FsY3VsYXRlIGNlbnRyb2lkXVxuXHRDIC0tPiBEW2NhbGN1bGF0ZSBkaXN0YW5jZXMgdG8gY2VudHJvaWRdXG5cdEQgLS0-IEVbZmE6ZmEtb2JqZWN0LWdyb3VwIEdyb3VwIGJhc2VkIG9uIG1pbiBkaXN0YW5jZV1cbiAgICBFIC0tPiBGe0NvbnZlcmdlbmNlID99XG4gICAgRiAtLT4gfFllc3wgRW5kXG4gICAgRiAtLT4gfE5PfCBDXG5cdFx0XHRcdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0"
+        data-srcset="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcblx0QVtTdGFydF0gLS0-IEJbL051bWJlciBvZiBjbHVzdGVycywgay9dXG5cdEIgLS0-IENbY2FsY3VsYXRlIGNlbnRyb2lkXVxuXHRDIC0tPiBEW2NhbGN1bGF0ZSBkaXN0YW5jZXMgdG8gY2VudHJvaWRdXG5cdEQgLS0-IEVbZmE6ZmEtb2JqZWN0LWdyb3VwIEdyb3VwIGJhc2VkIG9uIG1pbiBkaXN0YW5jZV1cbiAgICBFIC0tPiBGe0NvbnZlcmdlbmNlID99XG4gICAgRiAtLT4gfFllc3wgRW5kXG4gICAgRiAtLT4gfE5PfCBDXG5cdFx0XHRcdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0, https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcblx0QVtTdGFydF0gLS0-IEJbL051bWJlciBvZiBjbHVzdGVycywgay9dXG5cdEIgLS0-IENbY2FsY3VsYXRlIGNlbnRyb2lkXVxuXHRDIC0tPiBEW2NhbGN1bGF0ZSBkaXN0YW5jZXMgdG8gY2VudHJvaWRdXG5cdEQgLS0-IEVbZmE6ZmEtb2JqZWN0LWdyb3VwIEdyb3VwIGJhc2VkIG9uIG1pbiBkaXN0YW5jZV1cbiAgICBFIC0tPiBGe0NvbnZlcmdlbmNlID99XG4gICAgRiAtLT4gfFllc3wgRW5kXG4gICAgRiAtLT4gfE5PfCBDXG5cdFx0XHRcdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 1.5x, https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcblx0QVtTdGFydF0gLS0-IEJbL051bWJlciBvZiBjbHVzdGVycywgay9dXG5cdEIgLS0-IENbY2FsY3VsYXRlIGNlbnRyb2lkXVxuXHRDIC0tPiBEW2NhbGN1bGF0ZSBkaXN0YW5jZXMgdG8gY2VudHJvaWRdXG5cdEQgLS0-IEVbZmE6ZmEtb2JqZWN0LWdyb3VwIEdyb3VwIGJhc2VkIG9uIG1pbiBkaXN0YW5jZV1cbiAgICBFIC0tPiBGe0NvbnZlcmdlbmNlID99XG4gICAgRiAtLT4gfFllc3wgRW5kXG4gICAgRiAtLT4gfE5PfCBDXG5cdFx0XHRcdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0 2x"
+        data-sizes="auto"
+        alt="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcblx0QVtTdGFydF0gLS0-IEJbL051bWJlciBvZiBjbHVzdGVycywgay9dXG5cdEIgLS0-IENbY2FsY3VsYXRlIGNlbnRyb2lkXVxuXHRDIC0tPiBEW2NhbGN1bGF0ZSBkaXN0YW5jZXMgdG8gY2VudHJvaWRdXG5cdEQgLS0-IEVbZmE6ZmEtb2JqZWN0LWdyb3VwIEdyb3VwIGJhc2VkIG9uIG1pbiBkaXN0YW5jZV1cbiAgICBFIC0tPiBGe0NvbnZlcmdlbmNlID99XG4gICAgRiAtLT4gfFllc3wgRW5kXG4gICAgRiAtLT4gfE5PfCBDXG5cdFx0XHRcdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0"
+        title="https://mermaid.ink/img/eyJjb2RlIjoiZ3JhcGggVERcblx0QVtTdGFydF0gLS0-IEJbL051bWJlciBvZiBjbHVzdGVycywgay9dXG5cdEIgLS0-IENbY2FsY3VsYXRlIGNlbnRyb2lkXVxuXHRDIC0tPiBEW2NhbGN1bGF0ZSBkaXN0YW5jZXMgdG8gY2VudHJvaWRdXG5cdEQgLS0-IEVbZmE6ZmEtb2JqZWN0LWdyb3VwIEdyb3VwIGJhc2VkIG9uIG1pbiBkaXN0YW5jZV1cbiAgICBFIC0tPiBGe0NvbnZlcmdlbmNlID99XG4gICAgRiAtLT4gfFllc3wgRW5kXG4gICAgRiAtLT4gfE5PfCBDXG5cdFx0XHRcdFx0IiwibWVybWFpZCI6eyJ0aGVtZSI6Im5ldXRyYWwifSwidXBkYXRlRWRpdG9yIjpmYWxzZX0" /></a></p>
+<h1 id="error-equation-for-optmization">Error Equation for optmization</h1>
+<p>Assume we have points $X = {x_1, x_2&hellip; x_n}$</p>
+<p>Clusters $S = {s_1, s_2, &hellip; , s_k}$</p>
+<p>where $\mu_i$ is mean of centroid $s_i$</p>
+<p>Optimization criteria WCSS (within cluster sum of squares) is ..</p>
+<p>$\sum_{i=1}^{k} \sum_{x \in S_{i}}\left|x_{i-\mu_{i}}\right|^{2}$</p>
+<h1 id="complexity">Complexity</h1>
+<h2 id="time">Time</h2>
+<p>Each Round:  O(kN) for N points, k clusters</p>
+<p>For i (I) rounds: O(IkN)</p>
+<p>For M-dimensional vectors: O(IkMN)</p>
+<h2 id="space">Space</h2>
+<ul>
+<li>To store points and centroids: O((N+K)M)</li>
+</ul>
+<pre tabindex="0"><code># input dataset
+import matplotlib.pyplot as plt
+
+X = np.array([[1,3],[3.5,4.6],
+              [4.5,4.5],
+              [6,7],
+              [8,9],
+              [2,1.6],
+              [9,11]])
+
+plt.scatter(X[:,0], X[:,1], s=50)
+</code></pre><pre><code>&lt;matplotlib.collections.PathCollection at 0x7fdc2a798e48&gt;
+</code></pre>
+<p><img
+        class="lazyload"
+        src="/svg/loading.min.svg"
+        data-src="2020_05_22_k_means_files/2020_05_22_k_means_2_1.png"
+        data-srcset="2020_05_22_k_means_files/2020_05_22_k_means_2_1.png, 2020_05_22_k_means_files/2020_05_22_k_means_2_1.png 1.5x, 2020_05_22_k_means_files/2020_05_22_k_means_2_1.png 2x"
+        data-sizes="auto"
+        alt="2020_05_22_k_means_files/2020_05_22_k_means_2_1.png"
+        title="png" /></p>
+<pre tabindex="0"><code># distance formulae
+import numpy as np
+import random
+
+def euclidean(x1, x2):
+  return np.sqrt(np.sum((x1-x2)**2))
+</code></pre><pre tabindex="0"><code>k = 2 # num of clusters
+m = 1 # max num of iterations
+
+
+
+def predict(X):
+
+  samples, features = X.shape
+
+  # initialize centroids
+  initial_centroids = np.random.choice(X.shape[0], size=k, replace=False)
+  centroids = [X[cent] for cent in initial_centroids]
+
+  print(&#34;initial centroids {}&#34;.format(centroids))
+
+  # cluster list
+  
+
+  for iterations in range(m):
+
+    cluster_list = [[] for _ in range(k)]
+
+    for point in X:
+      distances = [euclidean(point, centroid) for centroid in centroids]
+      min_centroid_pos = distances.index(min(distances))
+      cluster_list[min_centroid_pos].append(point)
+    old_centroids = centroids
+    centroids = update_centroids(cluster_list)
+
+    if k_means_converged(old_centroids, centroids):
+      print(&#34;K means done&#34;)
+      break
+
+    print(cluster_list) 
+
+def update_centroids(cluster_list):
+        print(cluster_list)
+        # assign mean value of clusters to centroids
+        new_centroids = np.zeros((k, features))
+        for cluster_idx, cluster in enumerate(cluster_list):
+          cluster_mean = np.mean(cluster_list[cluster_idx], axis=0)
+          new_centroids[cluster_idx] = cluster_mean
+        return new_centroids
+
+def k_means_converged(centroids_old, centroids):
+        distances = [euclidean_distance(centroids_old[i], centroids[i]) for i in range(k)]
+        return sum(distances) == 0        
+
+predict(X)
+</code></pre><pre><code>initial centroids [array([3.5, 4.6]), array([ 9., 11.])]
+[[array([1., 3.]), array([3.5, 4.6]), array([4.5, 4.5]), array([6., 7.]), array([2. , 1.6])], [array([8., 9.]), array([ 9., 11.])]]
+[[array([1., 3.]), array([3.5, 4.6]), array([4.5, 4.5]), array([6., 7.]), array([2. , 1.6])], [array([8., 9.]), array([ 9., 11.])]]
+</code></pre>
+</div><div class="post-footer" id="post-footer">
+    <div class="post-info">
+        <div class="post-info-line">
+            <div class="post-info-mod">
+                <span>Updated on May, 2 2020</span>
+            </div></div>
+        <div class="post-info-line">
+            <div class="post-info-md"></div>
+            <div class="post-info-share">
+                <span><a href="javascript:void(0);" title="Share on Twitter" data-sharer="twitter" data-url="/posts/2020-05-22-k-means/" data-title="K means clustering" data-hashtags="ml"><i class="fab fa-twitter fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Facebook" data-sharer="facebook" data-url="/posts/2020-05-22-k-means/" data-hashtag="ml"><i class="fab fa-facebook-square fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Hacker News" data-sharer="hackernews" data-url="/posts/2020-05-22-k-means/" data-title="K means clustering"><i class="fab fa-hacker-news fa-fw" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on Line" data-sharer="line" data-url="/posts/2020-05-22-k-means/" data-title="K means clustering"><i data-svg-src="https://cdn.jsdelivr.net/npm/simple-icons@7.3.0/icons/line.svg" aria-hidden="true"></i></a><a href="javascript:void(0);" title="Share on 微博" data-sharer="weibo" data-url="/posts/2020-05-22-k-means/" data-title="K means clustering"><i class="fab fa-weibo fa-fw" aria-hidden="true"></i></a></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="post-info-more">
+        <section class="post-tags"><i class="fas fa-tags fa-fw" aria-hidden="true"></i>&nbsp;<a href="/tags/ml/">ml</a></section>
+        <section>
+            <span><a href="javascript:void(0);" onclick="window.history.back();">Back</a></span>&nbsp;|&nbsp;<span><a href="/">Home</a></span>
+        </section>
+    </div>
+
+    <div class="post-nav"><a href="/posts/2020-05-02-statistics/" class="prev" rel="prev" title="Statistics for Machine Learning"><i class="fas fa-angle-left fa-fw" aria-hidden="true"></i>Statistics for Machine Learning</a>
+            <a href="/posts/2020-05-21-svm/" class="next" rel="next" title="Support Vector Machines">Support Vector Machines<i class="fas fa-angle-right fa-fw" aria-hidden="true"></i></a></div>
+</div>
+</article></div>
+            </main><footer class="footer">
+        <div class="footer-container"><div class="footer-line">Powered by <a href="https://gohugo.io/" target="_blank" rel="noopener noreffer" title="Hugo 0.110.0">Hugo</a> | Theme - <a href="https://github.com/dillonzq/LoveIt" target="_blank" rel="noopener noreffer" title="LoveIt 0.2.11"><i class="far fa-kiss-wink-heart fa-fw" aria-hidden="true"></i> LoveIt</a>
+                </div><div class="footer-line" itemscope itemtype="http://schema.org/CreativeWork"><i class="far fa-copyright fa-fw" aria-hidden="true"></i><span itemprop="copyrightYear">2022 - 2023</span><span class="author" itemprop="copyrightHolder">&nbsp;<a href="/" target="_blank"></a></span></div>
+        </div>
+    </footer></div>
+
+        <div id="fixed-buttons"><a href="#" id="back-to-top" class="fixed-button" title="Back to Top">
+                <i class="fas fa-arrow-up fa-fw" aria-hidden="true"></i>
+            </a><a href="#" id="view-comments" class="fixed-button" title="View Comments">
+                <i class="fas fa-comment fa-fw" aria-hidden="true"></i>
+            </a>
+        </div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css"><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/lazysizes@5.3.2/lazysizes.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sharer.js@0.5.1/sharer.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/auto-render.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/copy-tex.min.js"></script><script type="text/javascript" src="https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/contrib/mhchem.min.js"></script><script type="text/javascript">window.config={"code":{"copyTitle":"Copy to clipboard","maxShownLines":50},"comment":{},"math":{"delimiters":[{"display":true,"left":"$$","right":"$$"},{"display":true,"left":"\\[","right":"\\]"},{"display":true,"left":"\\begin{equation}","right":"\\end{equation}"},{"display":true,"left":"\\begin{equation*}","right":"\\end{equation*}"},{"display":true,"left":"\\begin{align}","right":"\\end{align}"},{"display":true,"left":"\\begin{align*}","right":"\\end{align*}"},{"display":true,"left":"\\begin{alignat}","right":"\\end{alignat}"},{"display":true,"left":"\\begin{alignat*}","right":"\\end{alignat*}"},{"display":true,"left":"\\begin{gather}","right":"\\end{gather}"},{"display":true,"left":"\\begin{CD}","right":"\\end{CD}"},{"display":false,"left":"$","right":"$"},{"display":false,"left":"\\(","right":"\\)"}],"strict":false}};</script><script type="text/javascript" src="/js/theme.min.js"></script></body>
+</html>

@@ -1,0 +1,16 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>stats - Tag - Sudheer</title>
+        <link>/tags/stats/</link>
+        <description>stats - Tag - Sudheer</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 02 May 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/stats/" rel="self" type="application/rss+xml" /><item>
+    <title>Statistics for Machine Learning</title>
+    <link>/posts/2020-05-02-statistics/</link>
+    <pubDate>Sat, 02 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>/posts/2020-05-02-statistics/</guid>
+    <description><![CDATA[Data types in stats Examples of Numerical # continous mu = 20 sigma=2 data_continous = numpy.random.normal(mu, sigma, 1000) # generate from 100 to 150 with 0.1 difference sns.distplot(data_continous, color=&#34;blue&#34;) plt.show() # discrete import numpy as np dice_rolls = [np.random.randint(1, 7) for _ in range(10)] plt.hist(dice_rolls) plt.show() Nominal Data Data you can&rsquo;t order.
+Gender religion hair color data = {&#39;Name&#39;: [&#39;Jim&#39;,&#39;Jake&#39;,&#39;Jessy&#39;], &#39;Gender&#39;: [&#39;Male&#39;,&#39;Male&#39;,&#39;Female&#39;] } data = pd.DataFrame(data, columns=[&#39;Name&#39;, &#39;Gender&#39;]) data .]]></description>
+</item>
+</channel>
+</rss>

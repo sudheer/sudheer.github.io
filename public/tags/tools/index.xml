@@ -1,0 +1,23 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>tools - Tag - Sudheer</title>
+        <link>/tags/tools/</link>
+        <description>tools - Tag - Sudheer</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 15 Dec 2022 00:00:00 &#43;0000</lastBuildDate><atom:link href="/tags/tools/" rel="self" type="application/rss+xml" /><item>
+    <title>Dev tools and software used</title>
+    <link>/posts/2022-12-25-dev-tools-setup/</link>
+    <pubDate>Thu, 15 Dec 2022 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>/posts/2022-12-25-dev-tools-setup/</guid>
+    <description><![CDATA[Terminal Alacritty
+TokyoNight zsh oh-my-zsh
+power-level-10k Tmux
+custom status line Editors Emacs Config: Doom Emacs Theme: Gruvbox Notable Plugins Treemacs vterm metals projectile org-mode
+org-agenda org-capture NeoVim Config: LunarVim Theme: Gruvbox Notable Plugins
+nvim-tree nvim-metals telescope nvim-orgmode IDEA Theme: Darcula Notable Plugins
+idea-vim scala Markup OrgMode Markdown Task Management Calendar: Default Mac App
+Personal Work Home Task OrgMode Work Personal org-kanban Apps
+Mac: Emacs, Neovim IOS: Plain Org Time Tracking]]></description>
+</item>
+</channel>
+</rss>

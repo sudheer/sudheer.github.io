@@ -1,0 +1,80 @@
+#+title: Dev tools and software used
+#+date: 2022-12-15
+#+categories: tools
+#+tags: tools
+
+* Terminal 
++ Alacritty
+  + TokyoNight
++ zsh
++ oh-my-zsh
+  + power-level-10k
++ Tmux
+  + custom status line
+
+* Editors
+*** Emacs
+    + Config: Doom Emacs
+    + Theme: Gruvbox
+    + Notable Plugins 
+      + Treemacs
+      + vterm
+      + metals
+      + projectile
+      + org-mode
+        + org-agenda
+        + org-capture
+*** NeoVim
+    + Config: LunarVim
+    + Theme: Gruvbox
+    + Notable Plugins
+      + nvim-tree
+      + nvim-metals
+      + telescope
+      + nvim-orgmode
+*** IDEA
+    + Theme: Darcula
+    + Notable Plugins
+      + idea-vim
+      + scala
+* Markup 
+    + OrgMode
+    + Markdown
+* Task Management
+    + Calendar: Default Mac App
+        + Personal
+        + Work
+        + Home
+    + Task 
+        + OrgMode 
+            + Work
+            + Personal
+        + org-kanban
+        + Apps
+            + Mac: Emacs, Neovim
+            + IOS: Plain Org
+    + Time Tracking
+        + org-clock
+        + org-pomodoro
+* Softwares/Apps
+    + Yabai + skhd
+    + Safari
+        + Vimari
+        + Reading Lists
+        + Bookmarks
+    + Financial
+        + Webull
+        + TradingView
+        + Mint
+    + Podcasts
+    + Alfred
+    + Search
+        + Google
+        + ChatGPT
+        + You.com
+
+* Photography
+    + Lightroom
+    + AfterShoot
+    + Photos
+

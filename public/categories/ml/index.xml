@@ -1,0 +1,51 @@
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>ml - Category - Sudheer</title>
+        <link>/categories/ml/</link>
+        <description>ml - Category - Sudheer</description>
+        <generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 21 May 2020 00:00:00 &#43;0000</lastBuildDate><atom:link href="/categories/ml/" rel="self" type="application/rss+xml" /><item>
+    <title>Support Vector Machines</title>
+    <link>/posts/2020-05-21-svm/</link>
+    <pubDate>Thu, 21 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>/posts/2020-05-21-svm/</guid>
+    <description><![CDATA[SVM aims to make the margings as large as possible between closest data points of those classes.
+Key ideas find hyperplane that separates the class increase the margin that separates the class use kernal spec to make the model work for Non Linear data. Applications Handwriting recognition facial recognition we can apply it for Linear as well as Non Linear. For Non Linear data we will use kerner spec.
+Linear vs Non Linear Usecases regression classification Hypothesis function Lets say we have training samples ${(x_i, y_i), i=1 to n}$ where $x_i \in {R}$ are input training samples and $y_i$ where $y_i \in {-1, +1}$ are class attributes i.]]></description>
+</item>
+<item>
+    <title>K means clustering</title>
+    <link>/posts/2020-05-22-k-means/</link>
+    <pubDate>Sat, 02 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>/posts/2020-05-22-k-means/</guid>
+    <description><![CDATA[Clustering is the process of dividing the entire data into groups.
+How k means work Error Equation for optmization Assume we have points $X = {x_1, x_2&hellip; x_n}$
+Clusters $S = {s_1, s_2, &hellip; , s_k}$
+where $\mu_i$ is mean of centroid $s_i$
+Optimization criteria WCSS (within cluster sum of squares) is ..
+$\sum_{i=1}^{k} \sum_{x \in S_{i}}\left|x_{i-\mu_{i}}\right|^{2}$
+Complexity Time Each Round: O(kN) for N points, k clusters
+For i (I) rounds: O(IkN)]]></description>
+</item>
+<item>
+    <title>Statistics for Machine Learning</title>
+    <link>/posts/2020-05-02-statistics/</link>
+    <pubDate>Sat, 02 May 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>/posts/2020-05-02-statistics/</guid>
+    <description><![CDATA[Data types in stats Examples of Numerical # continous mu = 20 sigma=2 data_continous = numpy.random.normal(mu, sigma, 1000) # generate from 100 to 150 with 0.1 difference sns.distplot(data_continous, color=&#34;blue&#34;) plt.show() # discrete import numpy as np dice_rolls = [np.random.randint(1, 7) for _ in range(10)] plt.hist(dice_rolls) plt.show() Nominal Data Data you can&rsquo;t order.
+Gender religion hair color data = {&#39;Name&#39;: [&#39;Jim&#39;,&#39;Jake&#39;,&#39;Jessy&#39;], &#39;Gender&#39;: [&#39;Male&#39;,&#39;Male&#39;,&#39;Female&#39;] } data = pd.DataFrame(data, columns=[&#39;Name&#39;, &#39;Gender&#39;]) data .]]></description>
+</item>
+<item>
+    <title>Logistic Regression</title>
+    <link>/posts/2020-04-28-logistic-regression/</link>
+    <pubDate>Tue, 28 Apr 2020 00:00:00 &#43;0000</pubDate>
+    <author>Author</author>
+    <guid>/posts/2020-04-28-logistic-regression/</guid>
+    <description><![CDATA[Introduction Logistic regression uses the logistic sigmoid function to return a probability value from feature variables.
+How logistic regression works ?
+Examples A person is obese or not ? Does Mr A has cancer ? Will this team win the match today ? Email is spam or not ? Why not linear regression Linear regression predicts output as continuous range from $-\infty$ to $+\infty$. But we are predicting discrete values like 0 and 1 in case of logistic regression.]]></description>
+</item>
+</channel>
+</rss>
