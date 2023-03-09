@@ -1,0 +1,78 @@
+# Basics
+baseURL = ''
+defaultContentLanguage = "en"
+languageCode = "en"
+title = 'Sudheer'
+theme = "LoveIt"
+paginate = 12
+googleAnalytics = ""
+
+[author]
+  name = "sudheer"
+  email = ""
+  link = ""
+
+[menu]
+  [[menu.main]]
+    weight = 1
+    identifier = "posts"
+    pre = ""
+    post = ""
+    name = "Posts"
+    url = "/posts/"
+    title = ""
+  [[menu.main]]
+    weight = 2
+    identifier = "tags"
+    pre = ""
+    post = ""
+    name = "Tags"
+    url = "/tags/"
+    title = ""
+  [[menu.main]]
+    weight = 3
+    identifier = "categories"
+    pre = ""
+    post = ""
+    name = "Categories"
+    url = "/categories/"
+    title = ""
+
+[params]
+  defaultTheme = "light"
+  title = ""
+  description = ""
+  [params.header]
+    [params.header.title]
+      name = "Sudheer"
+  [params.footer]
+    custom = "Hugo LoveIt theme" 
+    author = false
+    hugo = false
+  [params.section]
+    paginate = 20
+    dateFormat = "Jan 02"
+  [params.home]
+    rss = 10
+    [params.home.profile]
+      enable = true
+      gravatarEmail = ""
+      avatarURL = "/images/avatar.png"
+      title = ""
+      subtitle = "Experiencing 🌎 one day @ a time"
+      typeit = false
+      social = true
+    [params.home.posts]
+      enable = true
+      paginate = 6
+  [params.social]
+    GitHub = ""
+    Linkedin = ""
+    Instagram = ""
+    Mastodon = ""
+  [params.page]
+    [params.page.code]
+      copy = true
+      maxShownLines = 50
+    [params.page.math]
+      enable = false

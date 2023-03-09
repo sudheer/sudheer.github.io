@@ -1,0 +1,18 @@
+<urlset
+    xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+    xmlns:xhtml="http://www.w3.org/1999/xhtml"
+    ><url>
+            <loc>/categories/</loc><lastmod>2022-12-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/2022-12-25-dev-tools-setup/</loc><lastmod>2022-12-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/</loc><lastmod>2022-12-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/</loc><lastmod>2022-12-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/</loc><lastmod>2022-12-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/tools/</loc><lastmod>2022-12-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/tools/</loc><lastmod>2022-12-15T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/ml/</loc><lastmod>2020-05-21T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/categories/ml/</loc><lastmod>2020-05-21T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/2020-05-21-svm/</loc><lastmod>2020-05-21T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/2020-05-22-k-means/</loc><lastmod>2020-05-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/2020-05-02-statistics/</loc><lastmod>2020-05-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/tags/stats/</loc><lastmod>2020-05-02T00:00:00&#43;00:00</lastmod></url><url>
+            <loc>/posts/2020-04-28-logistic-regression/</loc><lastmod>2020-04-28T00:00:00&#43;00:00</lastmod></url></urlset>

@@ -1,0 +1,19 @@
+{{- $params := .Params | merge .Site.Params.page -}}
+
+<article class="single summary" itemscope itemtype="http://schema.org/Article">
+    {{- /* Title */ -}}
+    <h1 class="single-title" itemprop="name headline">
+        <a href="{{ .RelPermalink }}">{{ .Title | emojify }}</a>
+    </h1>
+
+    {{- /* Meta */ -}}
+    <div class="post-meta">
+        {{- with .Site.Params.dateFormat | default "2006-01-02" | .PublishDate.Format -}}
+        &nbsp;<span class="post-publish">
+            {{- printf `<time datetime="%v">%v</time>` . . | dict "Date" | T "publishedOnDate" | safeHTML -}}
+        </span>
+        {{- end -}}
+
+    </div>
+
+</article>
