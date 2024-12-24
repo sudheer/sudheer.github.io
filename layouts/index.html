@@ -1,0 +1,14 @@
+{{ define "main" }}
+<main role="main">
+    <header class="homepage-header">
+        <h1>{{ .Title }}</h1>
+        {{ with .Params.subtitle }}
+        <span class="subtitle">{{ . }}</span>
+        {{ end }}
+    </header>
+    <div class="homepage-content">
+        <!-- Render the HTML content from content/_index.md -->
+        {{ .Content }}
+    </div>
+</main>
+{{ end }}
