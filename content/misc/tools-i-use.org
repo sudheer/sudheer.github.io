@@ -1,5 +1,7 @@
 #+title: Dev tools and software used
 #+date: 2022-12-15
+#+categories[]: pages misc
+#+tags[]: tools productivity
 
 | Item                    | 2022                | 2024                          |
 |-------------------------+---------------------+-------------------------------|
