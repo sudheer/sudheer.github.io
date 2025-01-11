@@ -15,7 +15,7 @@ theme = "hugo-theme-hello-friend-ng"
     name = "SuDo"
 
 [taxonomies]
-    category = "blog"
+    category = "categories"
     tag      = "tags"
     series   = "series"
 
