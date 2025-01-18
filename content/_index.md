@@ -21,7 +21,7 @@ title: " Hello! 👋"
     <i class="far fa-file-alt"></i><br />
     Posts &gt;
   </div>
-  <div onclick="location.href='/categories/micro'">
+  <div onclick="location.href='/micro'">
     <i class="far fa-comment"></i><br />
     Micro &gt;
   </div>

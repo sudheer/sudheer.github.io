@@ -1,0 +1,14 @@
+#+title: Stopping by Woods
+#+date: 2024-01-18
+#+categories[]: micro
+#+tags[]: quote
+
+These lines are from *Stopping by Woods on a Snowy Evening* by Robert Frost written in 1922 (pub 1923) in his New Hampshire Vol.
+
+The poem highlights the importance of enjoying the beauty and peace of nature while also fulfilling one's responsibilities and obligations, without becoming entirely lost in that joy.
+#+BEGIN_QUOTE
+The woods are lovely, dark and deep,\\
+But I have promises to keep,\\
+And miles to go before I sleep,\\
+And miles to go before I sleep.
+#+END_QUOTE

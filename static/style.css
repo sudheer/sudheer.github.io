@@ -7,6 +7,27 @@
   text-align: center; 
 }
 
+.micro-posts {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.micro-post {
+  background-color: #121212;
+  padding: 1rem;
+  border-radius: 8px;
+  color: #ddd;
+  max-width: 800px; /* Limit the width */
+  text-align: left; /* Ensure text is left-aligned */
+}
+
+.micro-post .meta {
+  font-size: 0.9rem;
+  color: #888;
+}
+
 .social {
   font-size: 2rem
 }

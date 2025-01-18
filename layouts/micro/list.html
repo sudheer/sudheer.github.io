@@ -1,0 +1,10 @@
+{{ define "main" }}
+<div class="micro-posts">
+  {{ range .Pages }}
+  <div class="micro-post">
+    <p>{{ .Content | safeHTML }}</p>
+    <p class="meta">→ {{ .Date.Format "2006-01-02" }}</p>
+  </div>
+  {{ end }}
+</div>
+{{ end }}
