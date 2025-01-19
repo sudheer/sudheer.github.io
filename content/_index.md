@@ -12,7 +12,6 @@ title: " Hello! 👋"
   }
 </style>
 <div class="mycontent">
-  <p> 🌉 Husband, Dad. Based in San Francisco, works in data.</p>
   <p> 💡This space is where I share my ‘Today I Learned’ moments and other explorations in tech, life, and beyond.</p>
 </div>
 
