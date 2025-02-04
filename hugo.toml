@@ -8,6 +8,8 @@ title = 'My New Hugo Site'
     path = 'github.com/rhazdon/hugo-theme-hello-friend-ng'
 theme = "hugo-theme-hello-friend-ng"
 
+[params]
+    enableThemeToggle = true
 [params.logo]
     logoMark = ">"
     logoText = "SuDo /home/"
