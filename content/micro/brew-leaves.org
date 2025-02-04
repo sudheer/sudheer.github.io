@@ -1,0 +1,22 @@
+#+title: Brew Leaves
+#+date: 2024-01-24
+#+categories[]: micro
+#+tags[]: setup tools
+#+draft: true
+
+* To find out leaf nodes with out deps
+
+#+BEGIN_SRC sh
+brew leaves
+#+END_SRC
+
+* Create Brewfile to save those leafs
+
+#+BEGIN_SRC sh
+brew leaves | sed 's/^/install /' > Brewfile
+#+END_SRC
+
+* Install from exsisting brew file
+#+BEGIN_SRC sh
+brew bundle --file=Brewfile
+#+END_SRC

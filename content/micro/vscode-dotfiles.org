@@ -1,0 +1,32 @@
+#+title: VsCode Settings as dotfiles
+#+date: 2024-01-30
+#+categories[]: micro
+#+tags[]: setup tools
+#+draft: true
+
+* Dot files directory
+#+BEGIN_SRC sh
+mkdir -p ~/Personal/dotfiles/.config/vscode
+#+END_SRC
+
+* Copy and Symlink settings.json
+#+BEGIN_SRC sh
+cp ~/Library/Application\ Support/Code/User/settings.json ~/Personal/dotfiles/.config/vscode/
+rm ~/Library/Application\ Support/Code/User/settings.json
+ln -s ~/Personal/dotfiles/.config/vscode/settings.json ~/Library/Application\ Support/Code/User/settings.json
+#+END_SRC
+
+* Copy keybindings.json
+#+BEGIN_SRC sh
+cp ~/Library/Application\ Support/Code/User/keybindings.json ~/Personal/dotfiles/.config/vscode/
+rm ~/Library/Application\ Support/Code/User/keybindings.json
+ln -s ~/Personal/dotfiles/.config/vscode/keybindings.json ~/Library/Application\ Support/Code/User/keybindings.json
+#+END_SRC
+
+
+* Copy snippets directory
+#+BEGIN_SRC sh
+cp -r ~/Library/Application\ Support/Code/User/snippets ~/Personal/dotfiles/.config/vscode/snippets/
+rm -rf ~/Library/Application\ Support/Code/User/snippets
+ln -s ~/Personal/dotfiles/.config/vscode/snippets ~/Library/Application\ Support/Code/User/snippets
+#+END_SRC

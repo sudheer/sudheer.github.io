@@ -1,0 +1,15 @@
+#+title: Forward and Backward Compatibility
+#+date: 2025-02-03
+#+categories[]: micro
+#+tags[]: glossary
+#+draft: true
+
+* Forward Compatibility
+#+begin_quote
+New code can read data written by old code.
+#+end_quote
+
+* Backward Compatibility
+#+begin_quote
+Old code can read data written by new code.
+#+end_quote
