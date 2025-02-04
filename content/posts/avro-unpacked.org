@@ -157,13 +157,6 @@ While JSON, Protobuf, and others have their uses, Apache Avro stands out for mod
      - Self-Describing: Schemas are often stored with data (e.g., in Avro files or Kafka), enabling schema evolution.
      - Flexibility: Supports complex types (unions, enums, maps) and schema references.
 
-       | **Feature**            | **Avro IDL (AVDL)**                     | **Avro Schema (AVSC)**                  |
-       |----------------------+---------------------------------------+---------------------------------------|
-       | **Syntax**             | C/Java-like (programming syntax)      | JSON-based                            |
-       | **RPC Support**        | Yes (protocols + methods)             | No (data schemas only)                |
-       | **Code Generation**    | Required (compiles to AVSC + code)    | Optional (used directly)              |
-       | **Dynamic Schema Use** | Limited (requires compilation)        | Yes (schemas parsed at runtime)       |
-       | **Human Readability**  | High (developer-friendly)             | Moderate (JSON verbosity)             |
-       | **Primary Use Case**   | RPC/service definitions + codegen     | Data serialization + schema evolution |
-       | **Schema Evolution**   | Indirect (via AVSC after compilation) | Direct (embedded in data/storage)     |
-       | **Interoperability**   | Tied to codegen workflows             | Universal (JSON works across systems) |
+*** Why AVSC Is Suited for Serialization While AVDL Is Not
+- AVDL is an interface definition language: It provides a more human-readable syntax for defining schemas (and optionally RPC interfaces), but it’s not the format Avro libraries use at runtime.
+- AVSC is the canonical JSON-based schema: Avro’s serialization/deserialization mechanisms expect the schema in JSON form (i.e., .avsc). Any extra details (types, defaults, doc strings, etc.) the library needs for robust serialization and schema resolution are stored in this JSON structure.
