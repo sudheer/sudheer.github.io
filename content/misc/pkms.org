@@ -1,0 +1,38 @@
+
+
+#+begin_src d2 :file ~/Personal/sudheer.github.io/content/assets/pkms.png :exports none :results silent :flags -t 5 --layout=tala
+*.style.stroke-width: 0
+*.style.fill: white
+*.label.near: bottom-center
+
+github: "Github" { icon: https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/dd177ee126e14e6b3b5e7a8bea50a599_low_res_GitHub_appicon.png }
+social: "Social" { icon: https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F65064c30-96ef-4a6b-aa9a-b0d461fc6960&w=384&q=75 }
+books: "Books" { icon: https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/a0752d8c1cfd8d096c1d292a18a3a770_low_res_Kindle.png }
+video: "YT" { icon: https://parsefiles.back4app.com/JPaQcFfEEQ1ePBxbf6wvzkPMEqKYHhPYv8boI1Rc/db4407e2396bea5eff4d72f58c97fa12_low_res_YouTube.png }
+audio: "Podcasts" { icon: https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F143ab951-e304-452b-a866-983a4222cc6a&w=384&q=75 }
+email: "Mail" { icon: https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F22bde274-2837-450a-b253-d7f0cf315a3a&w=384&q=75 }
+slack: "Messaging" { icon: https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2Fslack.png&w=384&q=75 }
+calendar: "Meetings" { icon: https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2Fcalendar.png&w=384&q=75 }
+web: "Web" { icon: https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2FSafari.png&w=384&q=75 }
+
+logseq: "LogSeq" { icon: https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F8774d459-48f1-4ac4-96dd-594159a792ac&w=384&q=75 }
+readwise: "ReadWise" { icon: https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F1fd7e98f-488d-4690-803a-401a3c703502&w=384&q=75 }
+zotero: "Zotero" { icon: https://www.dockhunt.com/_next/image?url=https%3A%2F%2Fdockhunt-images.nyc3.cdn.digitaloceanspaces.com%2F43e5c90d-fe21-4dea-a0e1-3f99fffae787&w=384&q=75 }
+
+audio -> readwise
+books -> readwise
+video -> logseq
+social -> logseq
+email -> logseq
+slack -> logseq
+calendar -> logseq
+web -> readlater
+web -> zotero
+readlater -> logseq
+readwise -> logseq
+web -> logseq
+zotero -> logseq
+#+end_src
+
+#+RESULTS:
+[[file:~/Personal/sudheer.github.io/content/assets/pkms.png]]

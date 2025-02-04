@@ -1,0 +1,41 @@
+#+title: Pyenv Setup Emacs
+#+date: 2024-01-21
+#+categories[]: micro
+#+tags[]: setup
+#+draft: true
+
+* Installations
+
+1. Install pyenv
+#+begin_src sh
+brew update
+brew install pyenv
+#+end_src
+
+2. Setup zshrc
+#+begin_src sh
+  echo 'export PYENV_ROOT="$HOME/.pyenv"' >> ~/.zshrc
+  echo '[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"' >> ~/.zshrc
+  echo 'eval "$(pyenv init - zsh)"' >> ~/.zshrc
+#+end_src
+
+3. Pyenv commands
+#+begin_src sh
+pyenv install -l # gives list of avail versions
+pyenv install 3.10 # install specific version
+pyenv global 3.10 # setup specific version
+#+end_src
+
+* Setup venv
+
+#+BEGIN_SRC sh
+python3 -m venv ~/.interlinked
+source ~/.interlinked/bin/activate
+#+END_SRC
+
+#+BEGIN_SRC elisp
+(setq org-babel-python-command "~/.interlinked/bin/python")
+#+END_SRC
+
+#+RESULTS:
+: ~/.interlinked/bin/python

@@ -1,0 +1,33 @@
+#+title: Emacs how lsp mode works
+#+date: 2024-01-31
+#+categories[]: micro
+#+tags[]: setup tools
+#+draft: true
+
+* Lsp Mode
+~lsp-mode~ acts as a client for the Language Server Protocol. 
+  - communicates with the LSP server and brings those lang functionalities into emacs.
+    - It detects the language
+    - Starts specific lsp server
+
+* lang major-mode
+
+Eg: scala-mode, java-mode
+
+It provide functionalities like
+  - Syntax highlighting
+  - Indentation rules
+  - Basic navigation (eg: moving bw brackets)
+However, it doesn’t provide advanced IDE-like features such as code completion, go-to-definition, or refactoring.
+
+* LSP Server
+
+It implements the Language Server Protocol (LSP), a standardized protocol for communication between editors/IDEs and language servers.
+Eg: Metals for scala, pylsp for python.
+
+The LSP server analyzes your code and provides features like:
+- Code completion.
+- Syntax checking.
+- Go-to-definition.
+- Refactoring.
+- Hover documentation.

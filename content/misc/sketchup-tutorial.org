@@ -1,0 +1,32 @@
+---
+title: "SketchUp Tutorial"
+date: 2024-12-26
+draft: true
+---
+
+- sketch up web is free
+- shift + ? for search
+
+quick start:
+shapes = edges + rectangle
+- use push pull to turn 2d to 3d
+- navigation tools at the bottom of tool tray
+- orbit tool
+- pan tool
+- 2 finger shortcut for zoom
+- if you lost use zoom extense tool
+- most tools one click to start and one click to stop
+- to match size, hover (click and pull) on target shape and click on source wanted to match.
+- if you double click on surface, it will select edges + surface.
+- triple click to select whole geomentry
+- grouping makes geomentry as single object.
+- move tool to move shape and you can choose dimensions while moving. (blue inference line for vertical movement)
+- anything you can copy and paste, make it component.
+- if you edit one component, all components will be changed. that's the power of components.
+- while using move tool, click option on mac to create copy.
+- you need to click double click to edit a component.
+- offset tool.
+- Inference -> use push, pull and inferences to show where shapes need to stop.
+- Push your drawing on shape until you see on surface inference to cut.
+- you can use array to mulitiply the copy
+- you can delete guides (search for it)

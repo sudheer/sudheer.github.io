@@ -1,6 +1,6 @@
 #+title: Avro Unpacked
 #+date: 2025-02-01
-#+categories[]: micro
+#+categories[]: posts
 #+tags[]: avro
 
 Data serialization is the backbone of distributed systems, enabling applications to communicate efficiently.
