@@ -88,6 +88,7 @@ message User {
    - Schema Stored with Data: The schema is embedded in the serialized payload, enabling self-describing data.
 
 * Why avro
+** Inro
 Writer Schema (old):
 #+begin_src avro
 {
@@ -116,3 +117,53 @@ When deserializing, Avro ignores the missing age field automatically.
    - Efficiency: Compact binary format with embedded schemas.
 
 While JSON, Protobuf, and others have their uses, Apache Avro stands out for modern systems where schemas evolve dynamically and cross-language compatibility is critical. By combining the best of schemas, efficiency, and flexibility, Avro is the Swiss Army knife of serialization.
+** Schemas
+   Apache Avro supports two schema formats.
+***  Avro IDL (AVDL)
+    A human-friendly format for defining Avro schemas and RPC protocols. Resembles programming language syntax for readability.
+    #+BEGIN_SRC avdl
+    protocol UserService {
+      /** A user record */
+      record User {
+        string name;
+        int age;
+      }
+
+      // RPC method definition
+      User getUser(string id);
+    }
+    #+END_SRC
+**** Advantages
+     - *Concise Syntax*: Easier to write and read for developers familiar with programming languages.
+     - *Supports RPC*: Can define both data schemas (records) and RPC service interfaces in one file.
+     - *Namespaces and Documentation*: Allows namespacing (org.example.User) and inline comments for clarity.
+     - *Code Generation*: Compiles to AVSC (JSON) and generates client/server code for RPC.
+*** Avro Schema (AVSC)
+    #+begin_src avro
+    {
+      "type": "record",
+      "name": "User",
+      "namespace": "UserService",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "age", "type": "int"}
+      ]
+    }
+    #+end_src
+**** Advantages
+     - Machine-Readable: JSON is widely supported and easy to parse programmatically.
+     - No Compilation Needed: Can be used directly without generating code.
+     - Dynamic Typing: Schemas can be loaded at runtime (e.g., from a registry or database).
+     - Self-Describing: Schemas are often stored with data (e.g., in Avro files or Kafka), enabling schema evolution.
+     - Flexibility: Supports complex types (unions, enums, maps) and schema references.
+
+       | **Feature**            | **Avro IDL (AVDL)**                     | **Avro Schema (AVSC)**                  |
+       |----------------------+---------------------------------------+---------------------------------------|
+       | **Syntax**             | C/Java-like (programming syntax)      | JSON-based                            |
+       | **RPC Support**        | Yes (protocols + methods)             | No (data schemas only)                |
+       | **Code Generation**    | Required (compiles to AVSC + code)    | Optional (used directly)              |
+       | **Dynamic Schema Use** | Limited (requires compilation)        | Yes (schemas parsed at runtime)       |
+       | **Human Readability**  | High (developer-friendly)             | Moderate (JSON verbosity)             |
+       | **Primary Use Case**   | RPC/service definitions + codegen     | Data serialization + schema evolution |
+       | **Schema Evolution**   | Indirect (via AVSC after compilation) | Direct (embedded in data/storage)     |
+       | **Interoperability**   | Tied to codegen workflows             | Universal (JSON works across systems) |
