@@ -1,0 +1,162 @@
+#+title: Avro Unpacked
+#+date: 2025-02-01
+#+categories[]: posts
+#+tags[]: avro
+
+Data serialization is the backbone of distributed systems, enabling applications to communicate efficiently.
+Let’s explore why Apache Avro has emerged as a powerful alternative to traditional tools like Java serialization, JSON, and Protobuf—and how it solves their limitations.
+
+* Language-Specific Formats
+** Java’s built-in serialization
+#+begin_src java
+public class User implements Serializable {
+  private String name;
+  private int age;
+}
+
+// Serialize
+ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("user.ser"));
+out.writeObject(new User("Alice", 30));
+#+end_src
+
+** Python pkl
+#+begin_src python
+import pickle
+
+user = {"name": "Alice", "age": 30}
+pickle.dump(user, open("user.pkl", "wb"))
+#+end_src
+
+** Problems with Language-Specific serialization
+    - Language Lock-in: Java serialization only works in Java; Pickle only in Python.
+    - Security Risks: Pickle can execute arbitrary code during deserialization.
+    - Versioning Issues: Adding/removing fields breaks backward compatibility.
+    - Performance Limitations: Not always optimized for performance, which can be a bottleneck in high-throughput applications.
+** How Avro Fixes This
+    Avro uses language-agnostic schemas (defined in JSON). Data is serialized in a compact binary format readable by any language. No code execution risks!
+* Problem with XML and JSON
+** Json Example
+#+begin_src json
+{
+  "name": "Alice",
+  "age": 30
+}
+** Problems
+   - Verbosity: Although all files are ultimately bits on disk, text-based formats like JSON or XML encode data in a human-readable ASCII/UTF-8 text representation, whereas binary formats (like Avro's data) use more compact, machine-readable encodings that are typically smaller and faster to parse.
+   - Lack of strict typing: No enforcement of data types or structure. This can lead to runtime casting errors or confusion if you expect an integer but receive a string.
+   - Schema Evolution Nightmares: Adding a new field (e.g., email) breaks older clients. More work need to be done by frameworks reading data for schema to evolve.
+#+end_src
+*** Security Vulnerabilities
+Some built-in serialization mechanisms can be vulnerable to security exploits, particularly when handling data from untrusted sources. Deserializing malicious data could lead to arbitrary code execution. For example, Java's serialization has been associated with security issues in the past
+
+** How Avro Fixes This
+Avro schemas enforce structure and enable safe evolution:
+#+begin_src json
+{
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {"name": "name", "type": "string"},
+    {"name": "age", "type": "int"}
+  ]
+}
+#+end_src
+Data is stored in binary format (compact), and schemas can evolve without breaking compatibility.
+* Thrift and Protobuf
+** Protobuf example
+#+begin_src proto
+message User {
+  required string name = 1;
+  required int32 age = 2;
+}
+#+end_src
+** Problems
+   - Schema Evolution Complexity: Can’t remove fields without reserving tags.
+     #+begin_src proto
+       message User {
+         required string name = 1;
+         reserved 2;           // Can't use tag 2 again if field removed
+         optional string phone = 3;
+         optional int32 birth_year = 4; // New field
+       }
+     #+end_src
+   - Code Generation Overhead: Requires compiling .proto/.thrift files into classes.
+   - No Dynamic Typing: Schemas are rigid and tied to generated code. If schema change, code needs re-generation.
+** How Avro Fixes This
+   - Schema Resolution: Avro readers can use a different schema than writers. Just remove a field, no need of reserving a tag.
+   - No Code Generation: Avro supports dynamic typing (optional).
+   - Schema Stored with Data: The schema is embedded in the serialized payload, enabling self-describing data.
+
+* Why avro
+** Inro
+Writer Schema (old):
+#+begin_src avro
+{
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {"name": "name", "type": "string"},
+    {"name": "age", "type": "int"}
+  ]
+}
+#+end_src
+Reader Schema (new):
+#+begin_src avro
+{
+  "type": "record",
+  "name": "User",
+  "fields": [
+    {"name": "name", "type": "string"}
+  ]
+}
+#+end_src
+When deserializing, Avro ignores the missing age field automatically.
+** Advantages
+   - Cross-Language Support: Works seamlessly in Java, Python, C++, etc.
+   - Schema Evolution: Add/remove fields without breaking compatibility.
+   - Efficiency: Compact binary format with embedded schemas.
+
+While JSON, Protobuf, and others have their uses, Apache Avro stands out for modern systems where schemas evolve dynamically and cross-language compatibility is critical. By combining the best of schemas, efficiency, and flexibility, Avro is the Swiss Army knife of serialization.
+** Schemas
+   Apache Avro supports two schema formats.
+***  Avro IDL (AVDL)
+    A human-friendly format for defining Avro schemas and RPC protocols. Resembles programming language syntax for readability.
+    #+BEGIN_SRC avdl
+    protocol UserService {
+      /** A user record */
+      record User {
+        string name;
+        int age;
+      }
+
+      // RPC method definition
+      User getUser(string id);
+    }
+    #+END_SRC
+**** Advantages
+     - *Concise Syntax*: Easier to write and read for developers familiar with programming languages.
+     - *Supports RPC*: Can define both data schemas (records) and RPC service interfaces in one file.
+     - *Namespaces and Documentation*: Allows namespacing (org.example.User) and inline comments for clarity.
+     - *Code Generation*: Compiles to AVSC (JSON) and generates client/server code for RPC.
+*** Avro Schema (AVSC)
+    #+begin_src avro
+    {
+      "type": "record",
+      "name": "User",
+      "namespace": "UserService",
+      "fields": [
+        {"name": "name", "type": "string"},
+        {"name": "age", "type": "int"}
+      ]
+    }
+    #+end_src
+**** Advantages
+     - Machine-Readable: JSON is widely supported and easy to parse programmatically.
+     - No Compilation Needed: Can be used directly without generating code.
+     - Dynamic Typing: Schemas can be loaded at runtime (e.g., from a registry or database).
+     - Self-Describing: Schemas are often stored with data (e.g., in Avro files or Kafka), enabling schema evolution.
+     - Flexibility: Supports complex types (unions, enums, maps) and schema references.
+
+*** Why AVSC Is Suited for Serialization While AVDL Is Not
+- AVDL is an interface definition language: It provides a more human-readable syntax for defining schemas (and optionally RPC interfaces), but it’s not the format Avro libraries use at runtime.
+- AVSC is the canonical JSON-based schema: Avro’s serialization/deserialization mechanisms expect the schema in JSON form (i.e., .avsc). Any extra details (types, defaults, doc strings, etc.) the library needs for robust serialization and schema resolution are stored in this JSON structure.

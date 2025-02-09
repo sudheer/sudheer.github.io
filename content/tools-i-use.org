@@ -1,0 +1,39 @@
+#+title: Dev tools and software used
+#+date: 2022-12-15
+#+categories[]: posts
+#+tags[]: tools productivity
+
+| Item                    | 2022                | 2024                          |
+|-------------------------+---------------------+-------------------------------|
+| 📨 Mail Client          |                    |                              |
+| 📮 Mail Server          |  + Google          |  Mail                        |
+| 📝 Notes                |  Notes             | LogSeq, Emacs                 |
+| ✅ To-Do                | OrgMode             | OrgMode (W),  Reminder (P)   |
+| 📆 Calendar             | iCal                | iCal                          |
+| ⏰ Time Tracking        | OrgMode             | OrgMode                       |
+| 📜 Word Processing      | -                   |  Pages                       |
+| 📊 Presentations        |  Keynote           |  Keynote                     |
+| 📖 RSS                  | -                   | -                             |
+| 🔖 Bookmarks            | Safari              | -                             |
+| 📥 Read Later           | Omnivore            | Zotero, Safari                |
+| 📚 Books                | Libby, Kindle       | Libby, Kindle, StoryGraph     |
+| 🖋️  Journaling           | Shortcuts, Logseq   |  Journal                     |
+| 🎧 Podcast App          |  Podcasts          | Snipd                         |
+| 🎵 Music                |  Music             | Youtube Music                 |
+| 📷 Photography          | Lightroom           | Lightroom                     |
+| 🌅 Photo Management     |  Photos, Lightroom |  Photos, Lightroom, Slidebox |
+| 💻 Terminal             | Alacritty           | WezTerm                       |
+| 🎨 Term Theme           | Tokyonight          | Tokyonight                    |
+| 🐚 Term Shell           | Zsh                 | Zsh                           |
+| ⚙️ Term ZshConfigs       | oh-my-zsh           | Starship                      |
+| 📑 Term Multiplexer     | Tmux                | WezTerm                       |
+| 📝 Code Editor          | Emacs +Vim +JB      | Emacs +Vim                    |
+| 🖌️ Editor Theme          | Gruvbox             | Gruvbox                       |
+| 🖋️ Markup Languages      | Org, MD             | Org, MD                       |
+| 🖼️ Tiling Window Manager | Yabai               | Aerospace                     |
+| 🌐 Browser              | Safari              | Safari                        |
+| ⌨️ Launcher              | Alfred              | Alfred                        |
+| 🔎 Internet Search      | Google              | Google + ChatGPT              |
+| 📈 Stock Management     | Webull              | TradingView                   |
+| 💰 Finance Tracking     | Mint                | Empower PC                    |
+| ☁️ Storage               | iCloud              | iCloud                        |

@@ -1,0 +1,27 @@
+baseURL = 'https://sudheer.github.io/'
+title = "SuDo"
+paginate = 5
+
+[module]
+  [[module.imports]]
+    path = 'github.com/adityatelange/hugo-PaperMod'
+
+[menu]
+main = [
+    { weight = 1, name = "📝 Posts", url = "/categories/posts/" },
+    { weight = 2, name = "💬 Micro", url = "/categories/micro/" },
+    { weight = 5, name = "👤 About", url = "/about/" },
+]
+
+[params]
+    DateFormat = "01/02/2006"
+    defaultTheme = "auto"
+
+[params.homeInfoParams]
+    Title = "Hello! 👋"
+    Content = "💡This space is where I share my ‘Today I Learned’ moments and other explorations in tech, life, and beyond."
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
