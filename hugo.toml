@@ -1,6 +1,8 @@
 baseURL = 'https://sudheer.github.io/'
 title = "SuDo"
-paginate = 5
+
+[pagination]
+  pagerSize = 10
 
 [module]
   [[module.imports]]
