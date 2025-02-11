@@ -1,2 +1,4 @@
 github.com/adityatelange/hugo-PaperMod v0.0.0-20250209063618-a020be213745 h1:3rNAIuYLUTQZv60ilJQfUjoFsJWgq/U7c2RCph5fSyA=
 github.com/adityatelange/hugo-PaperMod v0.0.0-20250209063618-a020be213745/go.mod h1:HCHxNMKYdGafUYjVV3ICiAqznZK2yH0iI53jqcDFDdQ=
+github.com/moniquelive/hugo-theme-nostyleplease v0.0.0-20241223215240-d1e1292a9572 h1:KrkKviAZCW4TvHidvZUd0yjIsDC/94Cq76QiDEvBy9w=
+github.com/moniquelive/hugo-theme-nostyleplease v0.0.0-20241223215240-d1e1292a9572/go.mod h1:WpsYIvO3r/NuegAxWvw7DRixoKmIk3s6oM7wh7kjgDQ=

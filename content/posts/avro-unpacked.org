@@ -41,6 +41,7 @@ pickle.dump(user, open("user.pkl", "wb"))
   "name": "Alice",
   "age": 30
 }
+#+end_src
 ** Problems
    - Verbosity: Although all files are ultimately bits on disk, text-based formats like JSON or XML encode data in a human-readable ASCII/UTF-8 text representation, whereas binary formats (like Avro's data) use more compact, machine-readable encodings that are typically smaller and faster to parse.
    - Lack of strict typing: No enforcement of data types or structure. This can lead to runtime casting errors or confusion if you expect an integer but receive a string.
