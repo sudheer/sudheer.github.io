@@ -1,5 +1,5 @@
 #+title: Diffusion of Innovations
-#+date: 2024-01-30
+#+date: 2025-02-13
 #+categories[]: micro
 #+tags[]: mental-models
 
