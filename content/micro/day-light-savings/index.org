@@ -1,0 +1,10 @@
+#+title: Day Light Savings Explained
+#+date: 2025-03-09
+#+categories[]: micro
+#+tags[]: micro
+
+[[day-light-savings.png]]
+
+Daylight Saving Time, as you can see, shifts an hour of morning sunlight to the evening so people can enjoy more sunlight during summer evenings. As the graph shows, the sun rises as early as 4:50 AM in summer months when most people would be asleep. Shifting the clock forward by an hour moves that potentially wasted early morning sunlight to the evening when people can better utilize it.
+
+However, this practice does disrupt people's biological clocks, causing sleep disturbances, increased accidents, and temporary health impacts during transition periods. The debate continues about whether these societal benefits outweigh the physiological costs, especially since the original energy-saving rationale has become less relevant in modern times.
