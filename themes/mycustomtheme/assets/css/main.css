@@ -1,0 +1,86 @@
+:root {
+  --sans-font: "Roboto", sans-serif;
+}
+
+body {
+  color: #222;
+  margin: 0;
+  padding: 0;
+  font-family: "Roboto", sans-serif !important;
+}
+
+/* Center your main content */
+.container {
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+header {
+  border-bottom: 1px solid #222;
+  margin-bottom: 1rem;
+}
+
+footer {
+  border-top: 1px solid #222;
+  margin-top: 1rem;
+}
+
+a {
+  color: #00e;
+  text-decoration: none;
+}
+
+.post-title {
+  color: black;
+  /* Force black text color on the link */
+  text-decoration: none;
+  /* Remove underline if desired */
+}
+
+/* 2) Make the title + date occupy left/right sides */
+.post-line {
+  display: flex;
+  justify-content: space-between;
+  /* Title on the left, date on the right */
+  align-items: baseline;
+  /* Keep them aligned horizontally */
+  margin: 0.5rem 0;
+  /* Some vertical spacing between lines */
+}
+
+/* (Optional) style the date differently, e.g., a subtle color */
+.post-date {
+  color: #666;
+  /* slightly lighter than black */
+  font-size: 0.9em;
+}
+
+nav a {
+  margin-right: 1rem;
+  text-decoration: none;
+  color: #333;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  /* Title on left, menu on right */
+  align-items: center;
+  /* Vertically center them */
+  margin-bottom: 1rem;
+  /* Optional spacing */
+}
+
+.site-header nav a {
+  margin-left: 1rem;
+  /* Some space between each link */
+  text-decoration: none;
+  color: inherit;
+  /* Matches the site’s default text color */
+}

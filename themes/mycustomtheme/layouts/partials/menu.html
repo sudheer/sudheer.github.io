@@ -1,0 +1,9 @@
+<nav>
+  <!-- Bear Blog–style inline links -->
+  <a href="{{ "" | relURL }}">Home</a>
+
+  <!-- Loop over main menu items -->
+  {{ range .Site.Menus.main }}
+  <a href="{{ .URL }}">{{ .Name }}</a>
+  {{ end }}
+</nav>

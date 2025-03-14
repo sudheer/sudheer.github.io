@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<h3>Posts →</h3>
+{{ range first 7 (where .Site.RegularPages "Section" "posts") }}
+<p class="post-line">
+  <a href="{{ .RelPermalink }}" class="post-title">{{ .Title }}</a>
+  <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+</p>
+{{ end }}
+
+<h3>Micro →</h3>
+{{ range first 5 (where .Site.RegularPages "Section" "micro") }}
+<p class="post-line">
+  <a href="{{ .RelPermalink }}" class="post-title">{{ .Title }}</a>
+  <span class="post-date">{{ .Date.Format "2006-01-02" }}</span>
+</p>
+{{ end }}
+{{ end }}
