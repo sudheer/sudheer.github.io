@@ -1,0 +1,17 @@
+{{ define "main" }}
+<h1>{{ .Title }}</h1>
+
+{{ range .Paginator.Pages }}
+<div class="micro-card">
+    <div class="micro-header">
+        <strong>{{ .Title }} #</strong>
+        <span class="micro-date">{{ .Date.Format "2006-01-02" }}</span>
+    </div>
+
+    <!-- Fix relative image paths inside content for list pages -->
+    <div class="micro-content">
+        {{ .Content | replaceRE "(<img src=[\"'])([^\"']+)(\\.(png|jpg|jpeg|gif|svg))([\"'])" (printf "$1%s$2$3$5"
+            .RelPermalink) | safeHTML }} </div>
+    </div>
+    {{ end }}
+    {{ end }}

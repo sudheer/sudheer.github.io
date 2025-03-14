@@ -84,3 +84,48 @@ nav a:hover {
   color: inherit;
   /* Matches the site’s default text color */
 }
+
+.micro-card {
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  /* Prevent content from overflowing */
+  max-width: 100%;
+  /* Ensure the card does not exceed its container */
+}
+
+.micro-card img {
+  max-width: 100%;
+  /* Ensure images fit within the card */
+  height: auto;
+  /* Maintain aspect ratio */
+  display: block;
+  /* Prevent unwanted extra spacing */
+  margin: 0 auto;
+  /* Center image inside the card */
+  border-radius: 5px;
+  /* Optional: round the image corners */
+}
+
+.micro-header {
+  display: flex;
+  justify-content: space-between;
+  /* Title on the left, date on the right */
+  align-items: baseline;
+  border-bottom: 1px solid #ddd;
+  /* small dividing line, optional */
+  padding-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.micro-date {
+  color: #777;
+  font-size: 0.9em;
+}
+
+.micro-content {
+  /* The main text of the micro post */
+  line-height: 1.4;
+}
