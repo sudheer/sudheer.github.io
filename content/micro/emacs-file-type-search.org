@@ -1,0 +1,18 @@
+#+title: Searching Specific File Types with consult-ripgrep in Emacs
+#+date: 2025-03-19
+#+categories[]: micro
+#+tags[]: emacs
+
+If you're using Emacs with consult-ripgrep (M-x consult-ripgrep), you might want to search only within certain file types—say, just .scala files in a project. Here's the trick:
+
+#+begin_src 
+M-x consult-ripgrep RET -- -g '*.scala'
+#+end_src
+
++ The ~--~ separates ripgrep (rg) options from the search term.
++ ~-g '*.scala'~ tells rg to search only in .scala files.
++ You can add multiple -g flags for different file types like below.
+
+#+begin_src 
+M-x consult-ripgrep RET -- -g '*.scala' -g '*.sbt'
+#+end_src
