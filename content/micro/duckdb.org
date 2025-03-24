@@ -1,0 +1,15 @@
+#+title: Local Analytics with DuckDB and UI
+#+date: 2025-03-14
+#+categories[]: micro
+#+tags[]: tools
+#+draft: true
+
+* Installation
+
+#+begin_src sh
+brew install duckdb
+
+duckdb -ui
+#+end_src
+
+You will see an UI launching.
