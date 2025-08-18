@@ -9,9 +9,34 @@ theme = "github.com/sudheer/marcus-hugo"
   pagerSize = 10               # replaces deprecated `paginate = 10`
 
 [markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = false
+  [markup.highlight]
+    style = 'github'
+    lineNos = false
   [markup.tableOfContents]
-    startLevel = 2
-    endLevel = 4
+    startLevel = 1
+    endLevel = 6
+
+[params]
+  author = 'SuDo'
+  description = 'A minimal personal blog'
+
+# Navigation menu
+[menu]
+  [[menu.main]]
+    name = "Home"
+    url = "/"
+    weight = 10
+  [[menu.main]]
+    name = "Posts"
+    url = "/posts/"
+    weight = 20
+  [[menu.main]]
+    name = "Micro"
+    url = "/micro/"
+    weight = 30
 
 [module]
   [[module.imports]]
