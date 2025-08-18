@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Micro on Marcus Blog</title>
+    <link>http://localhost:62227/tags/micro/</link>
+    <description>Recent content in Micro on Marcus Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 09 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:62227/tags/micro/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Day Light Savings Explained</title>
+      <link>http://localhost:62227/micro/day-light-savings/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62227/micro/day-light-savings/</guid>
+      <description>&lt;p&gt;&#xA;&lt;img src=&#34;day-light-savings.png&#34; alt=&#34;day-light-savings.png&#34; title=&#34;day-light-savings.png&#34; /&gt;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;Daylight Saving Time, as you can see, shifts an hour of morning sunlight to the evening so people can enjoy more sunlight during summer evenings. As the graph shows, the sun rises as early as 4:50 AM in summer months when most people would be asleep. Shifting the clock forward by an hour moves that potentially wasted early morning sunlight to the evening when people can better utilize it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

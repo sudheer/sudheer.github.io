@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Micro on Marcus Blog</title>
+    <link>http://localhost:62227/categories/micro/</link>
+    <description>Recent content in Micro on Marcus Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 23 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:62227/categories/micro/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Searching Specific File Types in Emacs</title>
+      <link>http://localhost:62227/micro/consult-ripgrep-search/</link>
+      <pubDate>Sun, 23 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62227/micro/consult-ripgrep-search/</guid>
+      <description>&lt;p&gt;&#xA;If you&amp;#39;re using Emacs with consult-ripgrep (M-x consult-ripgrep), you might want to search only within certain file types—say, just .scala files in a project. Here&amp;#39;s the trick:&lt;/p&gt;&#xA;&lt;div class=&#34;src src-text&#34;&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;M-x consult-ripgrep RET -- -g &amp;#39;*.scala&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The – separates ripgrep (rg) options from the search term.&lt;/li&gt;&#xA;&lt;li&gt;-g &amp;#39;*.scala&amp;#39; tells rg to search only in .scala files.&lt;/li&gt;&#xA;&lt;li&gt;You can add multiple -g flags for different file types:&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;src src-text&#34;&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;M-x consult-ripgrep RET -- -g &amp;#39;*.scala&amp;#39; -g &amp;#39;*.sbt&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Searching Specific File Types with consult-ripgrep in Emacs</title>
+      <link>http://localhost:62227/micro/emacs-file-type-search/</link>
+      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62227/micro/emacs-file-type-search/</guid>
+      <description>&lt;p&gt;&#xA;If you&amp;#39;re using Emacs with consult-ripgrep (M-x consult-ripgrep), you might want to search only within certain file types—say, just .scala files in a project. Here&amp;#39;s the trick:&lt;/p&gt;&#xA;&lt;div class=&#34;src src-text&#34;&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;M-x consult-ripgrep RET -- -g &amp;#39;*.scala&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;code&gt;--&lt;/code&gt; separates ripgrep (rg) options from the search term.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;-g &amp;#39;*.scala&amp;#39;&lt;/code&gt; tells rg to search only in .scala files.&lt;/li&gt;&#xA;&lt;li&gt;You can add multiple -g flags for different file types like below.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;src src-text&#34;&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;M-x consult-ripgrep RET -- -g &amp;#39;*.scala&amp;#39; -g &amp;#39;*.sbt&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Local Analytics with DuckDB and UI</title>
+      <link>http://localhost:62227/micro/duckdb/</link>
+      <pubDate>Fri, 14 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62227/micro/duckdb/</guid>
+      <description>&lt;div id=&#34;outline-container-headline-1&#34; class=&#34;outline-2&#34;&gt;&#xA;&lt;h2 id=&#34;headline-1&#34;&gt;&#xA;Installation&#xA;&lt;/h2&gt;&#xA;&lt;div id=&#34;outline-text-headline-1&#34; class=&#34;outline-text-2&#34;&gt;&#xA;&lt;div class=&#34;src src-sh&#34;&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-sh&#34; data-lang=&#34;sh&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install duckdb&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&#xA;&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;duckdb -ui&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;p&gt;&#xA;You will see an UI launching.&lt;/p&gt;&#xA;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+    <item>
+      <title>Day Light Savings Explained</title>
+      <link>http://localhost:62227/micro/day-light-savings/</link>
+      <pubDate>Sun, 09 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62227/micro/day-light-savings/</guid>
+      <description>&lt;p&gt;&#xA;&lt;img src=&#34;day-light-savings.png&#34; alt=&#34;day-light-savings.png&#34; title=&#34;day-light-savings.png&#34; /&gt;&lt;/p&gt;&#xA;&lt;p&gt;&#xA;Daylight Saving Time, as you can see, shifts an hour of morning sunlight to the evening so people can enjoy more sunlight during summer evenings. As the graph shows, the sun rises as early as 4:50 AM in summer months when most people would be asleep. Shifting the clock forward by an hour moves that potentially wasted early morning sunlight to the evening when people can better utilize it.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Diffusion of Innovations</title>
+      <link>http://localhost:62227/micro/diffusion-innovation/</link>
+      <pubDate>Thu, 13 Feb 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62227/micro/diffusion-innovation/</guid>
+      <description>&lt;p&gt;&#xA;The theory of Diffusion of Innovation is most commonly attributed to Everett Rogers, a sociologist who popularised it through his seminal 1962 book of the same name, though early ideas were explored by others like Edward T. Hall.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;It&amp;#39;s a mental model that explains how new ideas, products, or technologies spread through a social system.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The theory proposes that innovation diffusion follows a logical pattern, with the initial adoption of innovations being by a small percentage of the population (the innovators), followed by early adopters, early majority, late majority, and laggards.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Stopping by Woods</title>
+      <link>http://localhost:62227/micro/woods-quote/</link>
+      <pubDate>Sat, 18 Jan 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62227/micro/woods-quote/</guid>
+      <description>&lt;p&gt;&#xA;These lines are from &lt;strong&gt;Stopping by Woods on a Snowy Evening&lt;/strong&gt; by Robert Frost written in 1922 (pub 1923) in his New Hampshire Vol.&lt;/p&gt;&#xA;&lt;p&gt;&#xA;The poem highlights the importance of enjoying the beauty and peace of nature while also fulfilling one&amp;#39;s responsibilities and obligations, without becoming entirely lost in that joy.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;The woods are lovely, dark and deep,&lt;br&gt;&#xA;But I have promises to keep,&lt;br&gt;&#xA;And miles to go before I sleep,&lt;br&gt;&#xA;And miles to go before I sleep.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

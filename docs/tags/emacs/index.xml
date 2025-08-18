@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emacs on Marcus Blog</title>
+    <link>http://localhost:62227/tags/emacs/</link>
+    <description>Recent content in Emacs on Marcus Blog</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 Mar 2025 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:62227/tags/emacs/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Searching Specific File Types with consult-ripgrep in Emacs</title>
+      <link>http://localhost:62227/micro/emacs-file-type-search/</link>
+      <pubDate>Wed, 19 Mar 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:62227/micro/emacs-file-type-search/</guid>
+      <description>&lt;p&gt;&#xA;If you&amp;#39;re using Emacs with consult-ripgrep (M-x consult-ripgrep), you might want to search only within certain file types—say, just .scala files in a project. Here&amp;#39;s the trick:&lt;/p&gt;&#xA;&lt;div class=&#34;src src-text&#34;&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;M-x consult-ripgrep RET -- -g &amp;#39;*.scala&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;The &lt;code&gt;--&lt;/code&gt; separates ripgrep (rg) options from the search term.&lt;/li&gt;&#xA;&lt;li&gt;&lt;code&gt;-g &amp;#39;*.scala&amp;#39;&lt;/code&gt; tells rg to search only in .scala files.&lt;/li&gt;&#xA;&lt;li&gt;You can add multiple -g flags for different file types like below.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;div class=&#34;src src-text&#34;&gt;&#xA;&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-text&#34; data-lang=&#34;text&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;M-x consult-ripgrep RET -- -g &amp;#39;*.scala&amp;#39; -g &amp;#39;*.sbt&amp;#39;&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&#xA;&lt;/div&gt;</description>
+    </item>
+  </channel>
+</rss>
