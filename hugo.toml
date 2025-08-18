@@ -1,7 +1,7 @@
 baseURL = "https://sudheer.github.io/"
 title = "SuDo"
 languageCode = "en-us"
-publishDir = "docs"          # build output goes to /docs for GitHub Pages
+publishDir = "public"          # build output goes to /docs for GitHub Pages
 
 theme = "github.com/sudheer/marcus-hugo"
 
