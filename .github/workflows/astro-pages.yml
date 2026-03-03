@@ -2,40 +2,44 @@ name: Deploy Astro site to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches: [main, master]
   workflow_dispatch:
 
 permissions:
   contents: write
 
+env:
+  PAGES_BRANCH: gh-pages
+
 concurrency:
-  group: pages
+  group: deploy-prod
   cancel-in-progress: true
 
 jobs:
   deploy:
-    if: ${{ hashFiles('package-lock.json') != '' }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
+      - name: Setup Astro
+        uses: withastro/action@v3
         with:
+          path: .
           node-version: 20
-          cache: npm
+          package-manager: npm
 
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build Astro site for production
+      - name: Build production site
         run: npm run build
+
+      - name: Add .nojekyll for GitHub Pages
+        run: touch dist/.nojekyll
 
       - name: Deploy production to gh-pages root
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
+          branch: ${{ env.PAGES_BRANCH }}
           folder: dist
           clean: true
+          clean-exclude: preview

@@ -8,39 +8,119 @@ permissions:
   contents: write
   pull-requests: write
 
+concurrency:
+  group: preview-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+env:
+  PAGES_BRANCH: gh-pages
+
 jobs:
   preview:
-    if: ${{ hashFiles('package-lock.json') != '' }}
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: 20
-          cache: npm
+      - name: Ensure gh-pages branch exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --all
+          if git ls-remote --exit-code --heads origin "$PAGES_BRANCH" >/dev/null 2>&1; then
+            echo "Branch $PAGES_BRANCH exists"
+            exit 0
+          fi
 
-      - name: Install dependencies
-        run: npm ci
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git checkout --orphan "$PAGES_BRANCH"
+          git rm -rf . >/dev/null 2>&1 || true
+          printf '<!doctype html><title>Bootstrap</title><p>Preview bootstrap.</p>' > index.html
+          touch .nojekyll
+          git add index.html .nojekyll
+          git commit -m "Bootstrap gh-pages for previews"
+          git push origin "$PAGES_BRANCH"
+
+      - name: Setup Astro
+        uses: withastro/action@v3
+        with:
+          path: .
+          node-version: 20
+          package-manager: npm
 
       - name: Build Astro site for PR preview
-        run: npm run build -- --base "/pr-${{ github.event.number }}/"
+        run: npm run build
 
-      - name: Deploy preview to gh-pages/pr-<PR>
+      - name: Add .nojekyll for GitHub Pages
+        run: touch dist/.nojekyll
+
+      - name: Deploy preview to gh-pages/preview/pr-<PR>
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          branch: gh-pages
+          branch: ${{ env.PAGES_BRANCH }}
           folder: dist
-          target-folder: pr-${{ github.event.number }}
+          target-folder: preview/pr-${{ github.event.pull_request.number }}
           clean: true
 
-      - name: Comment preview URL on PR
-        uses: marocchino/sticky-pull-request-comment@v2
-        with:
-          message: |
-            ✅ Preview deployed for this PR.
+      - name: Verify preview URL is reachable
+        shell: bash
+        env:
+          PREVIEW_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ github.event.pull_request.number }}/
+        run: |
+          set -euo pipefail
+          echo "Checking $PREVIEW_URL"
+          for i in $(seq 1 20); do
+            code=$(curl -s -o /dev/null -w "%{http_code}" "$PREVIEW_URL" || true)
+            if [ "$code" = "200" ]; then
+              echo "Preview is live"
+              exit 0
+            fi
+            echo "Attempt $i/20: HTTP $code, retrying in 15s..."
+            sleep 15
+          done
+          echo "Preview did not become reachable in time"
+          exit 1
 
-            **Preview URL:** https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/pr-${{ github.event.number }}/
+      - name: Comment preview URL on PR
+        if: success()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request.number;
+            const url = `https://${context.repo.owner}.github.io/${context.repo.repo}/preview/pr-${pr}/`;
+            const body = [
+              '✅ Preview deployed for this PR.',
+              '',
+              `**Preview URL:** ${url}`
+            ].join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr,
+              body
+            });
+
+      - name: Comment failure help on PR
+        if: failure()
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const pr = context.payload.pull_request.number;
+            const body = [
+              '❌ PR preview deployment finished but URL was not reachable in time.',
+              '',
+              'Please check **Settings → Pages**:',
+              '- Source: `Deploy from a branch`',
+              '- Branch: `gh-pages`',
+              '- Folder: `/(root)`',
+              '',
+              'Then re-run the `Astro PR Preview` workflow.'
+            ].join('\n');
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pr,
+              body
+            });
