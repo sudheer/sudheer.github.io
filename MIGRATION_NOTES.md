@@ -15,7 +15,8 @@ This repository now follows the same preview approach as `marcus-astro`:
 - Every PR build deploys to `gh-pages` under `preview/pr-<number>/`.
 - URL format is:
   - `https://<user>.github.io/<repo>/preview/pr-<number>/`
-- The workflow verifies the URL and comments it in the PR.
+- The workflow verifies the URL and comments status in the PR.
+- If Pages propagation is slow, the workflow leaves a warning comment instead of failing the whole job.
 
 ## Production deploy
 

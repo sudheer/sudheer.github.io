@@ -51,7 +51,7 @@ jobs:
           package-manager: npm
 
       - name: Build Astro site for PR preview
-        run: npm run build
+        run: npm run build -- --base "/preview/pr-${{ github.event.pull_request.number }}/"
 
       - name: Add .nojekyll for GitHub Pages
         run: touch dist/.nojekyll
@@ -65,26 +65,28 @@ jobs:
           clean: true
 
       - name: Verify preview URL is reachable
+        id: verify_preview
+        continue-on-error: true
         shell: bash
         env:
           PREVIEW_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ github.event.pull_request.number }}/
         run: |
           set -euo pipefail
           echo "Checking $PREVIEW_URL"
-          for i in $(seq 1 20); do
-            code=$(curl -s -o /dev/null -w "%{http_code}" "$PREVIEW_URL" || true)
+          for i in $(seq 1 40); do
+            code=$(curl -s -L -o /dev/null -w "%{http_code}" "$PREVIEW_URL" || true)
             if [ "$code" = "200" ]; then
               echo "Preview is live"
               exit 0
             fi
-            echo "Attempt $i/20: HTTP $code, retrying in 15s..."
+            echo "Attempt $i/40: HTTP $code, retrying in 15s..."
             sleep 15
           done
           echo "Preview did not become reachable in time"
           exit 1
 
       - name: Comment preview URL on PR
-        if: success()
+        if: steps.verify_preview.outcome == 'success'
         uses: actions/github-script@v7
         with:
           script: |
@@ -102,21 +104,19 @@ jobs:
               body
             });
 
-      - name: Comment failure help on PR
-        if: failure()
+      - name: Comment delayed-propagation help on PR
+        if: steps.verify_preview.outcome != 'success'
         uses: actions/github-script@v7
         with:
           script: |
             const pr = context.payload.pull_request.number;
+            const url = `https://${context.repo.owner}.github.io/${context.repo.repo}/preview/pr-${pr}/`;
             const body = [
-              '❌ PR preview deployment finished but URL was not reachable in time.',
+              '⚠️ Preview was deployed, but the URL was not reachable within the workflow wait window.',
               '',
-              'Please check **Settings → Pages**:',
-              '- Source: `Deploy from a branch`',
-              '- Branch: `gh-pages`',
-              '- Folder: `/(root)`',
+              `**Preview URL (may become available shortly):** ${url}`,
               '',
-              'Then re-run the `Astro PR Preview` workflow.'
+              'If it still does not load after a few minutes, re-run the `Astro PR Preview` workflow.'
             ].join('\n');
             await github.rest.issues.createComment({
               owner: context.repo.owner,
