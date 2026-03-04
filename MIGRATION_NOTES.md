@@ -1,29 +1,22 @@
 # Hugo -> Astro migration notes
 
-## Why no Astro build happened earlier
+## Status
 
-The previous workflows were gated by:
-
-- `if: ${{ hashFiles('package-lock.json') != '' }}`
-
-Since this Hugo repository does not yet have `package-lock.json`, jobs were skipped and no build ran.
+This branch now includes a real Astro project (`package.json`, `astro.config.mjs`, `src/`) and Astro CI/deploy workflows.
 
 ## PR preview URLs (before merge)
 
-This repository now follows the same preview approach as `marcus-astro`:
-
 - Every PR build deploys to `gh-pages` under `preview/pr-<number>/`.
-- URL format is:
+- URL format:
   - `https://<user>.github.io/<repo>/preview/pr-<number>/`
-- The workflow verifies the URL and comments status in the PR.
-- If Pages propagation is slow, the workflow leaves a warning comment instead of failing the whole job.
+- The workflow comments preview status and URL on the PR.
 
 ## Production deploy
 
-- Pushes to `main`/`master` build with Astro and deploy `dist/` to `gh-pages` root.
-- `clean-exclude: preview` keeps PR previews while updating production.
+- Pushes to `main`/`master` build Astro and deploy `dist/` to `gh-pages` root.
+- `clean-exclude: preview` preserves existing PR preview folders.
 
-## Required GitHub settings
+## Required GitHub Pages settings
 
 In **Settings → Pages**:
 
@@ -31,10 +24,9 @@ In **Settings → Pages**:
 2. Branch: `gh-pages`
 3. Folder: `/(root)`
 
-## Workflow behavior before Astro files exist
+## Workflow files
 
-To avoid failing Actions while migration is in progress:
-
-- Workflows first check for `package.json` and `astro.config.*`.
-- If missing, deploy jobs are skipped gracefully.
-- PR workflow leaves an informational comment explaining why preview was skipped.
+- `.github/workflows/astro-ci.yml`
+- `.github/workflows/astro-pages.yml`
+- `.github/workflows/astro-preview.yml`
+- `.github/workflows/bootstrap-pages-branch.yml`

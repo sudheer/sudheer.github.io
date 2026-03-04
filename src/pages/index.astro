@@ -1,0 +1,32 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PostSection from '../components/PostSection.astro';
+
+const posts = (await getCollection('posts', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const micro = (await getCollection('micro', ({ data }) => !data.draft)).sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+---
+
+<BaseLayout title="SuDo — Editorial Astro Theme">
+  <div class="content intro">
+    <p class="muted">
+      Minimal Astro theme for technical writing. Structured lists, calm typography, optional TOC, and
+      dark mode included.
+    </p>
+  </div>
+
+  <PostSection title="Posts" href="posts" items={posts.slice(0, 5)} />
+  <PostSection title="Micro" href="micro" items={micro.slice(0, 5)} />
+</BaseLayout>
+
+<style>
+  .intro {
+    margin-top: 2rem;
+    font-size: 1.08rem;
+  }
+</style>
