@@ -3,13 +3,19 @@ name: Preview on Pull Request
 on:
   pull_request:
     types: [opened, synchronize, reopened]
+  workflow_dispatch:
+    inputs:
+      pr_number:
+        description: "Pull request number to deploy preview for"
+        required: true
+        type: string
 
 permissions:
   contents: write
   pull-requests: write
 
 concurrency:
-  group: preview-${{ github.event.pull_request.number }}
+  group: preview-${{ github.event.pull_request.number || inputs.pr_number }}
   cancel-in-progress: true
 
 env:
@@ -19,8 +25,9 @@ jobs:
   preview-deploy:
     runs-on: ubuntu-latest
     env:
+      PR_NUMBER: ${{ github.event.pull_request.number || inputs.pr_number }}
       DEPLOY_TARGET: pr
-      DEPLOY_PREVIEW_PATH: pr-${{ github.event.pull_request.number }}
+      DEPLOY_PREVIEW_PATH: pr-${{ github.event.pull_request.number || inputs.pr_number }}
 
     steps:
       - name: Checkout
@@ -64,30 +71,32 @@ jobs:
         with:
           branch: ${{ env.PAGES_BRANCH }}
           folder: dist
-          target-folder: preview/pr-${{ github.event.pull_request.number }}
+          target-folder: preview/pr-${{ env.PR_NUMBER }}
           clean: true
 
       - name: Verify preview URL is reachable
+        id: verify_preview
+        continue-on-error: true
         shell: bash
         env:
-          PREVIEW_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ github.event.pull_request.number }}/
+          PREVIEW_URL: https://${{ github.repository_owner }}.github.io/${{ github.event.repository.name }}/preview/pr-${{ env.PR_NUMBER }}/
         run: |
           set -euo pipefail
           echo "Checking $PREVIEW_URL"
-          for i in $(seq 1 20); do
-            code=$(curl -s -o /dev/null -w "%{http_code}" "$PREVIEW_URL" || true)
+          for i in $(seq 1 40); do
+            code=$(curl -s -L -o /dev/null -w "%{http_code}" "$PREVIEW_URL" || true)
             if [ "$code" = "200" ]; then
               echo "Preview is live"
               exit 0
             fi
-            echo "Attempt $i/20: HTTP $code, retrying in 15s..."
+            echo "Attempt $i/40: HTTP $code, retrying in 15s..."
             sleep 15
           done
           echo "Preview did not become reachable in time"
           exit 1
 
       - name: Comment preview URL on PR
-        if: success()
+        if: github.event_name == 'pull_request' && steps.verify_preview.outcome == 'success'
         uses: actions/github-script@v7
         with:
           script: |
@@ -106,20 +115,18 @@ jobs:
             });
 
       - name: Comment failure help on PR
-        if: failure()
+        if: github.event_name == 'pull_request' && steps.verify_preview.outcome == 'failure'
         uses: actions/github-script@v7
         with:
           script: |
             const pr = context.payload.pull_request.number;
+            const url = `https://${context.repo.owner}.github.io/${context.repo.repo}/preview/pr-${pr}/`;
             const body = [
-              '❌ PR preview deployment finished but URL was not reachable in time.',
+              '⚠️ PR preview was deployed but the URL was not reachable yet.',
               '',
-              'Please check **Settings → Pages**:',
-              '- Source: `Deploy from a branch`',
-              '- Branch: `gh-pages`',
-              '- Folder: `/(root)`',
+              `Try opening: ${url}`,
               '',
-              'Then re-run the `Preview on Pull Request` workflow.'
+              'If it still does not load, wait 2-5 minutes and re-run the `Preview on Pull Request` workflow.'
             ].join('\n');
             await github.rest.issues.createComment({
               owner: context.repo.owner,
