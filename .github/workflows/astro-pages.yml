@@ -16,7 +16,29 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  precheck:
+    runs-on: ubuntu-latest
+    outputs:
+      astro_ready: ${{ steps.detect.outputs.astro_ready }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Detect Astro project files
+        id: detect
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [[ -f package.json ]] && ls astro.config.* >/dev/null 2>&1; then
+            echo "astro_ready=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "astro_ready=false" >> "$GITHUB_OUTPUT"
+            echo "Astro not ready on this branch yet; skipping deploy."
+          fi
+
   deploy:
+    needs: precheck
+    if: needs.precheck.outputs.astro_ready == 'true'
     runs-on: ubuntu-latest
 
     steps:

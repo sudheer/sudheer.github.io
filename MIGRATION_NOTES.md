@@ -30,3 +30,11 @@ In **Settings → Pages**:
 1. Source: `Deploy from a branch`
 2. Branch: `gh-pages`
 3. Folder: `/(root)`
+
+## Workflow behavior before Astro files exist
+
+To avoid failing Actions while migration is in progress:
+
+- Workflows first check for `package.json` and `astro.config.*`.
+- If missing, deploy jobs are skipped gracefully.
+- PR workflow leaves an informational comment explaining why preview was skipped.
