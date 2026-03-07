@@ -1,0 +1,50 @@
+name: Bootstrap gh-pages branch
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  bootstrap:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Create gh-pages branch if missing
+        shell: bash
+        run: |
+          set -euo pipefail
+          git fetch --all
+
+          if git ls-remote --exit-code --heads origin gh-pages >/dev/null 2>&1; then
+            echo "gh-pages branch already exists; nothing to do."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git checkout --orphan gh-pages
+          git rm -rf . >/dev/null 2>&1 || true
+
+          cat > index.html <<'HTML'
+          <!doctype html>
+          <html lang="en">
+            <head>
+              <meta charset="utf-8" />
+              <meta name="viewport" content="width=device-width,initial-scale=1" />
+              <title>Marcus Astro Pages Bootstrap</title>
+            </head>
+            <body>
+              <p>GitHub Pages bootstrap branch created. Deploy workflows will replace this content.</p>
+            </body>
+          </html>
+          HTML
+
+          touch .nojekyll
+          git add index.html .nojekyll
+          git commit -m "Bootstrap gh-pages branch"
+          git push origin gh-pages

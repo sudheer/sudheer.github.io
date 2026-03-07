@@ -1,0 +1,47 @@
+name: Deploy production site
+
+on:
+  push:
+    branches: [main, master]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+env:
+  PAGES_BRANCH: gh-pages
+
+concurrency:
+  group: deploy-prod
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    env:
+      DEPLOY_TARGET: prod
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Astro
+        uses: withastro/action@v3
+        with:
+          path: .
+          node-version: 20
+          package-manager: npm
+
+      - name: Build production site
+        run: npm run build
+
+      - name: Add .nojekyll for GitHub Pages
+        run: touch dist/.nojekyll
+
+      - name: Deploy to pages branch root
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: ${{ env.PAGES_BRANCH }}
+          folder: dist
+          clean: true
+          clean-exclude: preview
