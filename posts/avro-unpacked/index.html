@@ -1,0 +1,166 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Minimal Astro writing theme focused on editorial readability and technical content."><title>Avro Unpacked | Posts</title><style>.post-grid[data-astro-cid-gysqo7gh]{display:grid;grid-template-columns:minmax(0,var(--toc-width)) minmax(0,var(--max-width));gap:2rem;margin-top:2rem}.toc[data-astro-cid-gysqo7gh]{position:sticky;top:1.4rem;max-height:calc(100vh - 2rem);overflow:auto;padding-right:.5rem}.toc[data-astro-cid-gysqo7gh] ul[data-astro-cid-gysqo7gh]{margin:0;padding:0;list-style:none;display:grid;gap:.6rem}.toc[data-astro-cid-gysqo7gh] a[data-astro-cid-gysqo7gh]{color:var(--muted);font-size:.95rem}.depth-3[data-astro-cid-gysqo7gh]{margin-left:.8rem}h1[data-astro-cid-gysqo7gh]{font-size:clamp(2.4rem,4vw,3.4rem);margin-bottom:.75rem}.meta[data-astro-cid-gysqo7gh]{color:var(--muted);margin:0 0 2rem}@media(max-width:1080px){.post-grid[data-astro-cid-gysqo7gh]{grid-template-columns:1fr}.toc[data-astro-cid-gysqo7gh]{display:none}}
+.theme-toggle[data-astro-cid-x3pjskd3]{border:0;background:transparent;color:var(--muted);font-size:1.2rem;cursor:pointer;padding:.25rem;line-height:1}.theme-toggle[data-astro-cid-x3pjskd3]:hover{color:var(--text)}.header[data-astro-cid-3ef6ksr2]{padding:2.25rem 0 1.1rem;border-bottom:1px solid var(--line)}.row[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand[data-astro-cid-3ef6ksr2]{font-size:2.8rem;font-weight:700;letter-spacing:-.03em}ul[data-astro-cid-3ef6ksr2]{display:flex;list-style:none;margin:0;padding:0;gap:1.6rem;align-items:center}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{font-weight:560;color:var(--muted)}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2][aria-current=page]{color:var(--text)}@media(max-width:740px){.brand[data-astro-cid-3ef6ksr2]{font-size:2.15rem}ul[data-astro-cid-3ef6ksr2]{gap:1rem;font-size:.95rem}}:root{color-scheme:light dark;--ui-scale: .75;font-size:calc(17px * var(--ui-scale));--bg: #f5f7f9;--panel: #ffffff;--text: #1f2933;--muted: #627282;--line: #d8e0e7;--code-bg: #eff3f6;--link: #1f2933;--link-hover: #000;--max-width: calc(920px * var(--ui-scale));--toc-width: calc(240px * var(--ui-scale));--radius: calc(12px * var(--ui-scale))}:root[data-theme=dark]{--bg: #0f1419;--panel: #131c24;--text: #e8edf2;--muted: #9eb0c0;--line: #243343;--code-bg: #1b2834;--link: #eef3f8;--link-hover: #fff}*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif;background:var(--bg);color:var(--text)}body{line-height:1.65;min-height:100vh}a{color:var(--link);text-decoration:none}a:hover{color:var(--link-hover)}.shell{width:min(calc(100% - calc(2.5rem * var(--ui-scale))),calc(1180px * var(--ui-scale)));margin:0 auto}.content{width:min(100%,var(--max-width))}h1,h2,h3{line-height:1.2;letter-spacing:-.02em}.prose p,.prose li,.prose table{font-size:1.08rem}.prose pre{background:var(--code-bg);border-radius:calc(10px * var(--ui-scale));padding:calc(1rem * var(--ui-scale));overflow-x:auto}.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,monospace;font-size:.92em}.prose table{border-collapse:collapse;display:block;overflow-x:auto;width:100%}.prose th,.prose td{border:1px solid var(--line);padding:calc(.55rem * var(--ui-scale)) calc(.75rem * var(--ui-scale));text-align:left}.muted{color:var(--muted)}@media(max-width:960px){.shell{width:min(calc(100% - calc(2rem * var(--ui-scale))),100%)}}
+</style></head> <body> <header class="header shell" data-astro-cid-3ef6ksr2> <div class="content row" data-astro-cid-3ef6ksr2> <a href="/" class="brand" data-astro-cid-3ef6ksr2>SuDo</a> <nav aria-label="Main" data-astro-cid-3ef6ksr2> <ul data-astro-cid-3ef6ksr2> <li data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2> Home </a> </li><li data-astro-cid-3ef6ksr2> <a href="/posts/" aria-current="page" data-astro-cid-3ef6ksr2> Posts </a> </li><li data-astro-cid-3ef6ksr2> <a href="/micro/" data-astro-cid-3ef6ksr2> Micro </a> </li> <li data-astro-cid-3ef6ksr2><button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle data-astro-cid-x3pjskd3> <span aria-hidden="true" data-astro-cid-x3pjskd3>◐</span> </button> <script>
+  const root = document.documentElement;
+  const key = 'marcus-theme';
+
+  const applyTheme = (theme) => {
+    root.dataset.theme = theme;
+  };
+
+  const saved = localStorage.getItem(key);
+  const initial = saved ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(initial);
+
+  document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem(key, next);
+  });
+</script> </li> </ul> </nav> </div> </header>  <main class="shell">  <article class="post-grid" data-astro-cid-gysqo7gh> <aside class="toc" aria-label="Table of contents" data-astro-cid-gysqo7gh> <ul data-astro-cid-gysqo7gh> <li class="depth-2" data-astro-cid-gysqo7gh> <a href="#language-specific-formats" data-astro-cid-gysqo7gh>Language-Specific Formats</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#javas-built-in-serialization" data-astro-cid-gysqo7gh>Java’s built-in serialization</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#python-pkl" data-astro-cid-gysqo7gh>Python pkl</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#problems-with-language-specific-serialization" data-astro-cid-gysqo7gh>Problems with Language-Specific serialization</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#how-avro-fixes-this" data-astro-cid-gysqo7gh>How Avro Fixes This</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#problem-with-xml-and-json" data-astro-cid-gysqo7gh>Problem with XML and JSON</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#json-example" data-astro-cid-gysqo7gh>JSON example</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#problems" data-astro-cid-gysqo7gh>Problems</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#how-avro-fixes-this-1" data-astro-cid-gysqo7gh>How Avro Fixes This</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#thrift-and-protobuf" data-astro-cid-gysqo7gh>Thrift and Protobuf</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#protobuf-example" data-astro-cid-gysqo7gh>Protobuf example</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#problems-1" data-astro-cid-gysqo7gh>Problems</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#how-avro-fixes-this-2" data-astro-cid-gysqo7gh>How Avro Fixes This</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#why-avro" data-astro-cid-gysqo7gh>Why Avro</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#intro" data-astro-cid-gysqo7gh>Intro</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#advantages" data-astro-cid-gysqo7gh>Advantages</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#schemas" data-astro-cid-gysqo7gh>Schemas</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#avro-idl-avdl" data-astro-cid-gysqo7gh>Avro IDL (AVDL)</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#avro-schema-avsc" data-astro-cid-gysqo7gh>Avro Schema (AVSC)</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#why-avsc-is-suited-for-serialization-while-avdl-is-not" data-astro-cid-gysqo7gh>Why AVSC Is Suited for Serialization While AVDL Is Not</a> </li> </ul> </aside> <div class="content prose post" data-astro-cid-gysqo7gh> <header data-astro-cid-gysqo7gh> <h1 data-astro-cid-gysqo7gh>Avro Unpacked</h1> <p class="meta" data-astro-cid-gysqo7gh> <time datetime="2025-02-01T00:00:00.000Z" data-astro-cid-gysqo7gh>2025-02-01</time> </p> </header> <p>Data serialization is the backbone of distributed systems, enabling applications to communicate efficiently. Let’s explore why Apache Avro has emerged as a powerful alternative to traditional tools like Java serialization, JSON, and Protobuf—and how it solves their limitations.</p>
+<h2 id="language-specific-formats">Language-Specific Formats</h2>
+<h3 id="javas-built-in-serialization">Java’s built-in serialization</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="java"><code><span class="line"><span style="color:#F97583">public</span><span style="color:#F97583"> class</span><span style="color:#B392F0"> User</span><span style="color:#F97583"> implements</span><span style="color:#B392F0"> Serializable</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  private</span><span style="color:#E1E4E8"> String name;</span></span>
+<span class="line"><span style="color:#F97583">  private</span><span style="color:#F97583"> int</span><span style="color:#E1E4E8"> age;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">// Serialize</span></span>
+<span class="line"><span style="color:#E1E4E8">ObjectOutputStream out </span><span style="color:#F97583">=</span><span style="color:#F97583"> new</span><span style="color:#B392F0"> ObjectOutputStream</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">new</span><span style="color:#B392F0"> FileOutputStream</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"user.ser"</span><span style="color:#E1E4E8">));</span></span>
+<span class="line"><span style="color:#E1E4E8">out.</span><span style="color:#B392F0">writeObject</span><span style="color:#E1E4E8">(</span><span style="color:#F97583">new</span><span style="color:#B392F0"> User</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"Alice"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">30</span><span style="color:#E1E4E8">));</span></span></code></pre>
+<h3 id="python-pkl">Python pkl</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="python"><code><span class="line"><span style="color:#F97583">import</span><span style="color:#E1E4E8"> pickle</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">user </span><span style="color:#F97583">=</span><span style="color:#E1E4E8"> {</span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Alice"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"age"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">30</span><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">pickle.dump(user, </span><span style="color:#79B8FF">open</span><span style="color:#E1E4E8">(</span><span style="color:#9ECBFF">"user.pkl"</span><span style="color:#E1E4E8">, </span><span style="color:#9ECBFF">"wb"</span><span style="color:#E1E4E8">))</span></span></code></pre>
+<h3 id="problems-with-language-specific-serialization">Problems with Language-Specific serialization</h3>
+<ul>
+<li>Language Lock-in: Java serialization only works in Java; Pickle only in Python.</li>
+<li>Security Risks: Pickle can execute arbitrary code during deserialization.</li>
+<li>Versioning Issues: Adding/removing fields breaks backward compatibility.</li>
+<li>Performance Limitations: Not always optimized for performance, which can be a bottleneck in high-throughput applications.</li>
+</ul>
+<h3 id="how-avro-fixes-this">How Avro Fixes This</h3>
+<p>Avro uses language-agnostic schemas (defined in JSON). Data is serialized in a compact binary format readable by any language. No code execution risks.</p>
+<h2 id="problem-with-xml-and-json">Problem with XML and JSON</h2>
+<h3 id="json-example">JSON example</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"Alice"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "age"</span><span style="color:#E1E4E8">: </span><span style="color:#79B8FF">30</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="problems">Problems</h3>
+<ul>
+<li>Verbosity: Although all files are ultimately bits on disk, text-based formats like JSON or XML encode data in a human-readable ASCII/UTF-8 representation, while binary formats (like Avro data) use compact machine-readable encodings that are typically smaller and faster to parse.</li>
+<li>Lack of strict typing: No enforcement of data types or structure.</li>
+<li>Schema evolution nightmares: Adding a new field (for example, <code>email</code>) can break older clients.</li>
+</ul>
+<h4 id="security-vulnerabilities">Security vulnerabilities</h4>
+<p>Some built-in serialization mechanisms can be vulnerable to security exploits, particularly when handling data from untrusted sources. Deserializing malicious data could lead to arbitrary code execution.</p>
+<h3 id="how-avro-fixes-this-1">How Avro Fixes This</h3>
+<p>Avro schemas enforce structure and enable safe evolution:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"record"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"User"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "fields"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span><span style="color:#79B8FF">"name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">},</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span><span style="color:#79B8FF">"name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"age"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"int"</span><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Data is stored in binary format (compact), and schemas can evolve without breaking compatibility.</p>
+<h2 id="thrift-and-protobuf">Thrift and Protobuf</h2>
+<h3 id="protobuf-example">Protobuf example</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="proto"><code><span class="line"><span style="color:#F97583">message</span><span style="color:#B392F0"> User</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  required</span><span style="color:#F97583"> string</span><span style="color:#E1E4E8"> name </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  required</span><span style="color:#F97583"> int32</span><span style="color:#E1E4E8"> age </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h3 id="problems-1">Problems</h3>
+<ul>
+<li>Schema evolution complexity: Can’t remove fields without reserving tags.</li>
+</ul>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="proto"><code><span class="line"><span style="color:#F97583">message</span><span style="color:#B392F0"> User</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#F97583">  required</span><span style="color:#F97583"> string</span><span style="color:#E1E4E8"> name </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 1</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  reserved</span><span style="color:#79B8FF"> 2</span><span style="color:#E1E4E8">;           </span><span style="color:#6A737D">// Can't use tag 2 again if field removed</span></span>
+<span class="line"><span style="color:#F97583">  optional</span><span style="color:#F97583"> string</span><span style="color:#E1E4E8"> phone </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 3</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#F97583">  optional</span><span style="color:#F97583"> int32</span><span style="color:#E1E4E8"> birth_year </span><span style="color:#F97583">=</span><span style="color:#79B8FF"> 4</span><span style="color:#E1E4E8">; </span><span style="color:#6A737D">// New field</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<ul>
+<li>Code generation overhead: Requires compiling <code>.proto</code>/<code>.thrift</code> files into classes.</li>
+<li>No dynamic typing: Schemas are rigid and tied to generated code.</li>
+</ul>
+<h3 id="how-avro-fixes-this-2">How Avro Fixes This</h3>
+<ul>
+<li>Schema resolution: Avro readers can use a different schema than writers.</li>
+<li>No code generation: Avro supports dynamic typing (optional).</li>
+<li>Schema stored with data: The schema is embedded in the serialized payload.</li>
+</ul>
+<h2 id="why-avro">Why Avro</h2>
+<h3 id="intro">Intro</h3>
+<p>Writer schema (old):</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"record"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"User"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "fields"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span><span style="color:#79B8FF">"name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">},</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span><span style="color:#79B8FF">"name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"age"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"int"</span><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Reader schema (new):</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"record"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"User"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "fields"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span><span style="color:#79B8FF">"name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>When deserializing, Avro ignores the missing <code>age</code> field automatically.</p>
+<h3 id="advantages">Advantages</h3>
+<ul>
+<li>Cross-language support: Works seamlessly in Java, Python, C++, etc.</li>
+<li>Schema evolution: Add/remove fields without breaking compatibility.</li>
+<li>Efficiency: Compact binary format with embedded schemas.</li>
+</ul>
+<p>While JSON, Protobuf, and others have their uses, Apache Avro stands out for systems where schemas evolve dynamically and cross-language compatibility is critical.</p>
+<h2 id="schemas">Schemas</h2>
+<p>Apache Avro supports two schema formats.</p>
+<h3 id="avro-idl-avdl">Avro IDL (AVDL)</h3>
+<p>A human-friendly format for defining Avro schemas and RPC protocols. Resembles programming language syntax for readability.</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>protocol UserService {</span></span>
+<span class="line"><span>  /** A user record */</span></span>
+<span class="line"><span>  record User {</span></span>
+<span class="line"><span>    string name;</span></span>
+<span class="line"><span>    int age;</span></span>
+<span class="line"><span>  }</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>  // RPC method definition</span></span>
+<span class="line"><span>  User getUser(string id);</span></span>
+<span class="line"><span>}</span></span></code></pre>
+<h4 id="advantages-1">Advantages</h4>
+<ul>
+<li><strong>Concise syntax</strong>: Easier to write and read.</li>
+<li><strong>Supports RPC</strong>: Can define data schemas and RPC interfaces in one file.</li>
+<li><strong>Namespaces and documentation</strong>: Allows namespacing and inline comments.</li>
+<li><strong>Code generation</strong>: Compiles to AVSC (JSON) and generates client/server code for RPC.</li>
+</ul>
+<h3 id="avro-schema-avsc">Avro Schema (AVSC)</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#79B8FF">  "type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"record"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"User"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "namespace"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"UserService"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">  "fields"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span><span style="color:#79B8FF">"name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"name"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"string"</span><span style="color:#E1E4E8">},</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span><span style="color:#79B8FF">"name"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"age"</span><span style="color:#E1E4E8">, </span><span style="color:#79B8FF">"type"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"int"</span><span style="color:#E1E4E8">}</span></span>
+<span class="line"><span style="color:#E1E4E8">  ]</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h4 id="advantages-2">Advantages</h4>
+<ul>
+<li>Machine-readable: JSON is widely supported.</li>
+<li>No compilation needed: Can be used directly.</li>
+<li>Dynamic typing: Schemas can be loaded at runtime.</li>
+<li>Self-describing: Schemas are often stored with data.</li>
+<li>Flexibility: Supports complex types (unions, enums, maps).</li>
+</ul>
+<h3 id="why-avsc-is-suited-for-serialization-while-avdl-is-not">Why AVSC Is Suited for Serialization While AVDL Is Not</h3>
+<ul>
+<li>AVDL is an interface definition language and not the runtime format Avro libraries use.</li>
+<li>AVSC is the canonical JSON schema that Avro serialization/deserialization expects.</li>
+</ul> </div> </article>  </main> </body></html> 
