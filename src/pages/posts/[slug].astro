@@ -1,0 +1,98 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts', ({ data }) => !data.draft);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post }
+  }));
+}
+
+const { post } = Astro.props;
+const { Content, headings } = await post.render();
+const formatter = new Intl.DateTimeFormat('en-CA');
+---
+
+<BaseLayout title={`${post.data.title} | Posts`} description={post.data.description}>
+  <article class="post-grid">
+    <aside class="toc" aria-label="Table of contents">
+      {headings.length > 0 && (
+        <ul>
+          {headings
+            .filter((heading) => heading.depth <= 3)
+            .map((heading) => (
+              <li class={`depth-${heading.depth}`}>
+                <a href={`#${heading.slug}`}>{heading.text}</a>
+              </li>
+            ))}
+        </ul>
+      )}
+    </aside>
+
+    <div class="content prose post">
+      <header>
+        <h1>{post.data.title}</h1>
+        <p class="meta">
+          <time datetime={post.data.pubDate.toISOString()}>{formatter.format(post.data.pubDate)}</time>
+        </p>
+      </header>
+      <Content />
+    </div>
+  </article>
+</BaseLayout>
+
+<style>
+  .post-grid {
+    display: grid;
+    grid-template-columns: minmax(0, var(--toc-width)) minmax(0, var(--max-width));
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .toc {
+    position: sticky;
+    top: 1.4rem;
+    max-height: calc(100vh - 2rem);
+    overflow: auto;
+    padding-right: 0.5rem;
+  }
+
+  .toc ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: grid;
+    gap: 0.6rem;
+  }
+
+  .toc a {
+    color: var(--muted);
+    font-size: 0.95rem;
+  }
+
+  .depth-3 {
+    margin-left: 0.8rem;
+  }
+
+  h1 {
+    font-size: clamp(2.4rem, 4vw, 3.4rem);
+    margin-bottom: 0.75rem;
+  }
+
+  .meta {
+    color: var(--muted);
+    margin: 0 0 2rem;
+  }
+
+  @media (max-width: 1080px) {
+    .post-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .toc {
+      display: none;
+    }
+  }
+</style>

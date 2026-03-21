@@ -1,0 +1,38 @@
+<button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle>
+  <span aria-hidden="true">◐</span>
+</button>
+
+<script is:inline>
+  const root = document.documentElement;
+  const key = 'marcus-theme';
+
+  const applyTheme = (theme) => {
+    root.dataset.theme = theme;
+  };
+
+  const saved = localStorage.getItem(key);
+  const initial = saved ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(initial);
+
+  document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem(key, next);
+  });
+</script>
+
+<style>
+  .theme-toggle {
+    border: 0;
+    background: transparent;
+    color: var(--muted);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 0.25rem;
+    line-height: 1;
+  }
+
+  .theme-toggle:hover {
+    color: var(--text);
+  }
+</style>
