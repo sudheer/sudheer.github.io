@@ -5,6 +5,12 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 const notes = (await getCollection('micro', ({ data }) => !data.draft)).sort(
   (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
 );
+const entries = await Promise.all(
+  notes.map(async (note) => ({
+    note,
+    rendered: await note.render()
+  }))
+);
 const formatter = new Intl.DateTimeFormat('en-CA');
 const base = import.meta.env.BASE_URL;
 ---
@@ -13,15 +19,20 @@ const base = import.meta.env.BASE_URL;
   <section class="content page">
     <h1>Micro</h1>
     <div class="cards">
-      {notes.map((note) => (
-        <article>
-          <header>
-            <h2><a href={`${base}micro/${note.slug}/`}>{note.data.title}</a></h2>
-            <time datetime={note.data.pubDate.toISOString()}>{formatter.format(note.data.pubDate)}</time>
-          </header>
-          <p>{note.data.description}</p>
-        </article>
-      ))}
+      {entries.map(({ note, rendered }) => {
+        const { Content } = rendered;
+        return (
+          <article>
+            <header>
+              <h2><a href={`${base}micro/${note.slug}/`}>{note.data.title}</a></h2>
+              <time datetime={note.data.pubDate.toISOString()}>{formatter.format(note.data.pubDate)}</time>
+            </header>
+            <div class="feed-content prose">
+              <Content />
+            </div>
+          </article>
+        );
+      })}
     </div>
   </section>
 </BaseLayout>
@@ -63,10 +74,8 @@ const base = import.meta.env.BASE_URL;
     margin: 0 0 0.7rem;
   }
 
-  p {
-    margin: 0;
-    color: var(--muted);
-    font-size: 1.03rem;
+  .feed-content :global(*:first-child) {
+    margin-top: 0;
   }
 
   time {
