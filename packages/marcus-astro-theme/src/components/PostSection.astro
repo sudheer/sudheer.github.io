@@ -1,0 +1,110 @@
+---
+interface Item {
+  slug: string;
+  data: {
+    title: string;
+    pubDate: Date;
+  };
+}
+
+interface Props {
+  title: string;
+  href: string;
+  items: Item[];
+}
+
+const { title, href, items } = Astro.props;
+const base = import.meta.env.BASE_URL;
+const formatter = new Intl.DateTimeFormat('en-CA');
+---
+
+<section class="section content">
+  <div class="section-head">
+    <h2>{title}</h2>
+    <a class="section-link" href={`${base}${href}/`}>See all <span aria-hidden="true">→</span></a>
+  </div>
+  <ul>
+    {items.map((item) => (
+      <li>
+        <time datetime={item.data.pubDate.toISOString()}>{formatter.format(item.data.pubDate)}</time>
+        <a href={`${base}${href}/${item.slug}/`}>{item.data.title}</a>
+      </li>
+    ))}
+  </ul>
+</section>
+
+<style>
+  .section {
+    margin: 2.8rem 0 0;
+    padding-top: 1.35rem;
+    border-top: 1px solid var(--line);
+  }
+
+  .section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+    color: var(--text);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+
+  .section-link {
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+    color: var(--muted);
+  }
+
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+  }
+
+  li {
+    display: grid;
+    grid-template-columns: 150px minmax(0, 1fr);
+    gap: 1.6rem;
+    align-items: baseline;
+    padding: 0.5rem 0;
+  }
+
+  li a {
+    color: var(--text);
+    font-size: 1rem;
+  }
+
+  time {
+    color: var(--muted);
+    font-variant-numeric: tabular-nums;
+    font-family: var(--font-ui);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 640px) {
+    .section {
+      margin-top: 2.2rem;
+      padding-top: 1rem;
+    }
+
+    .section-head {
+      align-items: center;
+    }
+
+    li {
+      grid-template-columns: 1fr;
+      gap: 0.35rem;
+      padding: 0.55rem 0;
+    }
+  }
+</style>

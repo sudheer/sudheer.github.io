@@ -2,7 +2,11 @@
 
 ## Status
 
-This branch now includes a real Astro project (`package.json`, `astro.config.mjs`, `src/`) and Astro CI/deploy workflows.
+This branch now includes an Astro monorepo with npm workspaces:
+
+- `apps/blog` contains the deployable blog app, content, routes, Astro config, and TypeScript config.
+- `packages/marcus-astro-theme` contains the reusable Marcus Astro theme components, layouts, and styles.
+- The blog imports theme code through the local workspace package `@sudheer/marcus-astro-theme`.
 
 ## PR preview URLs (before merge)
 
@@ -13,7 +17,7 @@ This branch now includes a real Astro project (`package.json`, `astro.config.mjs
 
 ## Production deploy
 
-- Pushes to `main`/`master` build Astro and deploy `dist/` to `gh-pages` root.
+- Pushes to `main`/`master` build `apps/blog` and deploy `apps/blog/dist/` to `gh-pages` root.
 - `clean-exclude: preview` preserves existing PR preview folders.
 
 ## Required GitHub Pages settings

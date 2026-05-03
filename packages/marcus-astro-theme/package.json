@@ -1,0 +1,14 @@
+{
+  "name": "@sudheer/marcus-astro-theme",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "exports": {
+    "./components/*": "./src/components/*",
+    "./layouts/*": "./src/layouts/*",
+    "./styles/*": "./src/styles/*"
+  },
+  "peerDependencies": {
+    "astro": "^5.2.0"
+  }
+}

@@ -1,20 +1,16 @@
 {
-  "name": "marcus-astro",
+  "name": "sudheer-site-workspace",
   "version": "0.1.0",
-  "type": "module",
   "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
   "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro check && astro build",
-    "preview": "astro preview",
-    "check": "astro check"
-  },
-  "dependencies": {
-    "astro": "^5.2.0"
-  },
-  "devDependencies": {
-    "@astrojs/check": "^0.9.6",
-    "typescript": "^5.9.3"
+    "dev": "npm run dev -w apps/blog",
+    "start": "npm run dev -w apps/blog",
+    "build": "npm run build -w apps/blog",
+    "preview": "npm run preview -w apps/blog",
+    "check": "npm run check -w apps/blog"
   }
 }

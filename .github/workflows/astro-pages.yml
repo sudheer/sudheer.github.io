@@ -25,23 +25,25 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Astro
-        uses: withastro/action@v3
+      - name: Setup Node
+        uses: actions/setup-node@v4
         with:
-          path: .
           node-version: 20
-          package-manager: npm
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
 
       - name: Build production site
-        run: npm run build
+        run: npm run build -w apps/blog
 
       - name: Add .nojekyll for GitHub Pages
-        run: touch dist/.nojekyll
+        run: touch apps/blog/dist/.nojekyll
 
       - name: Deploy to pages branch root
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           branch: ${{ env.PAGES_BRANCH }}
-          folder: dist
+          folder: apps/blog/dist
           clean: true
           clean-exclude: preview
