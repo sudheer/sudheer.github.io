@@ -1,0 +1,906 @@
+<!DOCTYPE html><html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Minimal Astro writing theme focused on editorial readability and technical content."><title>Parquet Unpacked | Posts</title><style>.post-grid[data-astro-cid-gysqo7gh]{display:grid;grid-template-columns:minmax(0,var(--toc-width)) minmax(0,var(--max-width));gap:2rem;margin-top:2rem}.toc[data-astro-cid-gysqo7gh]{position:sticky;top:1.4rem;max-height:calc(100vh - 2rem);overflow:auto;padding-right:.5rem}.toc[data-astro-cid-gysqo7gh] ul[data-astro-cid-gysqo7gh]{margin:0;padding:0;list-style:none;display:grid;gap:.6rem}.toc[data-astro-cid-gysqo7gh] a[data-astro-cid-gysqo7gh]{color:var(--muted);font-size:.95rem}.depth-3[data-astro-cid-gysqo7gh]{margin-left:.8rem}h1[data-astro-cid-gysqo7gh]{font-size:clamp(2.4rem,4vw,3.4rem);margin-bottom:.75rem}.meta[data-astro-cid-gysqo7gh]{color:var(--muted);margin:0 0 2rem}@media(max-width:1080px){.post-grid[data-astro-cid-gysqo7gh]{grid-template-columns:1fr}.toc[data-astro-cid-gysqo7gh]{display:none}}
+.theme-toggle[data-astro-cid-ecimhjjz]{border:0;background:transparent;color:var(--muted);font-size:1rem;cursor:pointer;padding:.125rem;line-height:1}.theme-toggle[data-astro-cid-ecimhjjz]:hover{color:var(--text)}.header[data-astro-cid-eh6lhdmx]{padding:1.6rem 0 .9rem}.row[data-astro-cid-eh6lhdmx]{display:flex;align-items:center;justify-content:space-between;gap:1rem}.brand[data-astro-cid-eh6lhdmx]{font-family:var(--font-ui);font-size:1.45rem;font-weight:600;letter-spacing:0}ul[data-astro-cid-eh6lhdmx]{font-family:var(--font-ui);display:flex;list-style:none;margin:0;padding:0;gap:1.2rem;align-items:center}nav[data-astro-cid-eh6lhdmx] a[data-astro-cid-eh6lhdmx]{font-size:.95rem;font-weight:500;color:var(--muted)}nav[data-astro-cid-eh6lhdmx] a[data-astro-cid-eh6lhdmx][aria-current=page]{color:var(--text)}@media(max-width:740px){.brand[data-astro-cid-eh6lhdmx]{font-size:1.28rem}ul[data-astro-cid-eh6lhdmx]{gap:.9rem;font-size:.92rem}}:root{color-scheme:light dark;font-size:16px;--bg: #f7f5f1;--panel: #ffffff;--text: #22201d;--muted: #7a736a;--line: #ddd5ca;--code-bg: #efebe4;--link: #22201d;--link-hover: #000;--max-width: 920px;--toc-width: 240px;--radius: 12px;--font-system-sans: -apple-system, BlinkMacSystemFont, system-ui, "Inter", sans-serif;--font-body: var(--font-system-sans);--font-ui: var(--font-system-sans)}:root[data-theme=dark]{--bg: #121111;--panel: #171515;--text: #ebe7e1;--muted: #a39a90;--line: #35312c;--code-bg: #1d1a19;--link: #ebe7e1;--link-hover: #fff}*{box-sizing:border-box}html,body{margin:0;padding:0;font-family:var(--font-body);background:var(--bg);color:var(--text)}body{line-height:1.72;min-height:100vh;text-rendering:optimizeLegibility}a{color:var(--link);text-decoration:none;text-underline-offset:.14em}a:hover{color:var(--link-hover);text-decoration:underline}.shell{width:min(calc(100% - 2.5rem),var(--max-width));margin:0 auto}.content{width:100%}h1,h2,h3{line-height:1.24;letter-spacing:0;font-weight:600}.prose p,.prose li,.prose table{font-size:1.05rem}.prose pre{background:var(--code-bg);border-radius:10px;padding:1rem;overflow-x:auto}.prose pre.astro-code{background:var(--code-bg)!important;border:1px solid var(--line)}:root .astro-code,:root .astro-code span{color:var(--shiki-light)!important;font-style:var(--shiki-light-font-style)!important;font-weight:var(--shiki-light-font-weight)!important;text-decoration:var(--shiki-light-text-decoration)!important}:root .astro-code{background-color:var(--code-bg)!important}:root[data-theme=dark] .astro-code,:root[data-theme=dark] .astro-code span{color:var(--shiki-dark)!important;font-style:var(--shiki-dark-font-style)!important;font-weight:var(--shiki-dark-font-weight)!important;text-decoration:var(--shiki-dark-text-decoration)!important}:root[data-theme=dark] .astro-code{background-color:var(--code-bg)!important}.prose code{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,Liberation Mono,monospace;font-size:.92em}.prose h1,.prose h2,.prose h3,.prose h4,.prose h5,.prose h6{font-family:var(--font-ui)}.prose p+p{margin-top:1.15rem}.prose table{border-collapse:collapse;display:block;overflow-x:auto;width:100%}.prose th,.prose td{border:1px solid var(--line);padding:.55rem .75rem;text-align:left}.muted{color:var(--muted)}@media(max-width:960px){.shell{width:min(calc(100% - 2rem),100%)}}
+</style></head> <body> <header class="header shell" data-astro-cid-eh6lhdmx> <div class="content row" data-astro-cid-eh6lhdmx> <a href="/" class="brand" data-astro-cid-eh6lhdmx>SuDo</a> <nav aria-label="Main" data-astro-cid-eh6lhdmx> <ul data-astro-cid-eh6lhdmx> <li data-astro-cid-eh6lhdmx> <a href="/" data-astro-cid-eh6lhdmx> Home </a> </li><li data-astro-cid-eh6lhdmx> <a href="/posts/" aria-current="page" data-astro-cid-eh6lhdmx> Posts </a> </li><li data-astro-cid-eh6lhdmx> <a href="/micro/" data-astro-cid-eh6lhdmx> Micro </a> </li> <li data-astro-cid-eh6lhdmx><button class="theme-toggle" type="button" aria-label="Toggle theme" data-theme-toggle data-astro-cid-ecimhjjz> <span aria-hidden="true" data-astro-cid-ecimhjjz>◐</span> </button> <script>
+  const root = document.documentElement;
+  const key = 'marcus-theme';
+
+  const applyTheme = (theme) => {
+    root.dataset.theme = theme;
+  };
+
+  const saved = localStorage.getItem(key);
+  const initial = saved ?? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  applyTheme(initial);
+
+  document.querySelector('[data-theme-toggle]')?.addEventListener('click', () => {
+    const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    localStorage.setItem(key, next);
+  });
+</script> </li> </ul> </nav> </div> </header>  <main class="shell">  <article class="post-grid" data-astro-cid-gysqo7gh> <aside class="toc" aria-label="Table of contents" data-astro-cid-gysqo7gh> <ul data-astro-cid-gysqo7gh> <li class="depth-1" data-astro-cid-gysqo7gh> <a href="#understanding-apache-parquet-from-row-groups-to-page-indexes" data-astro-cid-gysqo7gh>Understanding Apache Parquet: From Row Groups to Page Indexes</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#1-why-parquet-is-columnar" data-astro-cid-gysqo7gh>1. Why Parquet Is Columnar</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#2-row-groups" data-astro-cid-gysqo7gh>2. Row Groups</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#3-column-chunks" data-astro-cid-gysqo7gh>3. Column Chunks</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#4-pages" data-astro-cid-gysqo7gh>4. Pages</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#5-data-pages-and-dictionary-pages" data-astro-cid-gysqo7gh>5. Data Pages and Dictionary Pages</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#6-dictionary-encoding" data-astro-cid-gysqo7gh>6. Dictionary Encoding</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#7-plain-encoding-fallback" data-astro-cid-gysqo7gh>7. Plain-Encoding Fallback</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#8-file-footer-and-metadata" data-astro-cid-gysqo7gh>8. File Footer and Metadata</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#9-column-chunk-statistics" data-astro-cid-gysqo7gh>9. Column-Chunk Statistics</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#important-statistics" data-astro-cid-gysqo7gh>Important Statistics</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#10-statistics-truncation" data-astro-cid-gysqo7gh>10. Statistics Truncation</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#11-bloom-filters" data-astro-cid-gysqo7gh>11. Bloom Filters</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#12-page-index" data-astro-cid-gysqo7gh>12. Page Index</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#13-column-index" data-astro-cid-gysqo7gh>13. Column Index</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#14-offset-index" data-astro-cid-gysqo7gh>14. Offset Index</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#15-physical-types-vs-logical-types" data-astro-cid-gysqo7gh>15. Physical Types vs Logical Types</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#16-logical-type-examples" data-astro-cid-gysqo7gh>16. Logical-Type Examples</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#string" data-astro-cid-gysqo7gh>String</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#decimal" data-astro-cid-gysqo7gh>Decimal</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#17-originaltype-vs-logicaltypeannotation" data-astro-cid-gysqo7gh>17. OriginalType vs LogicalTypeAnnotation</a> </li><li class="depth-2" data-astro-cid-gysqo7gh> <a href="#18-field-ids" data-astro-cid-gysqo7gh>18. Field IDs</a> </li><li class="depth-3" data-astro-cid-gysqo7gh> <a href="#nested-example" data-astro-cid-gysqo7gh>Nested Example</a> </li><li class="depth-1" data-astro-cid-gysqo7gh> <a href="#19-putting-everything-together" data-astro-cid-gysqo7gh>19. Putting Everything Together</a> </li><li class="depth-1" data-astro-cid-gysqo7gh> <a href="#20-the-optimization-ladder" data-astro-cid-gysqo7gh>20. The Optimization Ladder</a> </li><li class="depth-1" data-astro-cid-gysqo7gh> <a href="#final-mental-model" data-astro-cid-gysqo7gh>Final Mental Model</a> </li><li class="depth-1" data-astro-cid-gysqo7gh> <a href="#cheat-sheet" data-astro-cid-gysqo7gh>Cheat Sheet</a> </li><li class="depth-1" data-astro-cid-gysqo7gh> <a href="#the-one-idea-behind-parquet" data-astro-cid-gysqo7gh>The One Idea Behind Parquet</a> </li> </ul> </aside> <div class="content prose post" data-astro-cid-gysqo7gh> <header data-astro-cid-gysqo7gh> <h1 data-astro-cid-gysqo7gh>Parquet Unpacked</h1> <p class="meta" data-astro-cid-gysqo7gh> <time datetime="2026-02-01T00:00:00.000Z" data-astro-cid-gysqo7gh>2026-02-01</time> </p> </header> <h1 id="understanding-apache-parquet-from-row-groups-to-page-indexes">Understanding Apache Parquet: From Row Groups to Page Indexes</h1>
+<p>Parquet becomes much easier to understand once you stop thinking of it as simply <strong>“a columnar file format”</strong> and instead learn its physical structure one layer at a time.</p>
+<p>The core hierarchy is:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>PARQUET FILE</span></span>
+<span class="line"><span>    │</span></span>
+<span class="line"><span>    └── ROW GROUP</span></span>
+<span class="line"><span>          │</span></span>
+<span class="line"><span>          └── COLUMN CHUNK</span></span>
+<span class="line"><span>                  │</span></span>
+<span class="line"><span>                  └── PAGE</span></span></code></pre>
+<p>Everything else—dictionary encoding, statistics, Bloom filters, page indexes, schema annotations—fits around this structure.</p>
+<hr>
+<h2 id="1-why-parquet-is-columnar">1. Why Parquet Is Columnar</h2>
+<p>Consider this table:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>┌────┬────────┬─────┬────────┐</span></span>
+<span class="line"><span>│ id │ name   │ age │ salary │</span></span>
+<span class="line"><span>├────┼────────┼─────┼────────┤</span></span>
+<span class="line"><span>│ 1  │ Alice  │ 28  │ 100k   │</span></span>
+<span class="line"><span>│ 2  │ Bob    │ 35  │ 120k   │</span></span>
+<span class="line"><span>│ 3  │ Carol  │ 42  │ 150k   │</span></span>
+<span class="line"><span>└────┴────────┴─────┴────────┘</span></span></code></pre>
+<p>A row-oriented format conceptually stores:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>1, Alice, 28, 100k</span></span>
+<span class="line"><span>2, Bob,   35, 120k</span></span>
+<span class="line"><span>3, Carol, 42, 150k</span></span></code></pre>
+<p>Parquet organizes values by column:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>id      → 1, 2, 3</span></span>
+<span class="line"><span>name    → Alice, Bob, Carol</span></span>
+<span class="line"><span>age     → 28, 35, 42</span></span>
+<span class="line"><span>salary  → 100k, 120k, 150k</span></span></code></pre>
+<p>Why?</p>
+<p>Consider:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">SELECT</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> AVG</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">(salary)</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">FROM</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> employees;</span></span></code></pre>
+<p>A columnar reader can conceptually do:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>id       → SKIP</span></span>
+<span class="line"><span>name     → SKIP</span></span>
+<span class="line"><span>age      → SKIP</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>salary   → READ</span></span>
+<span class="line"><span>             │</span></span>
+<span class="line"><span>             ▼</span></span>
+<span class="line"><span>           AVG()</span></span></code></pre>
+<p>This is <strong>column pruning</strong>.</p>
+<p>Parquet is therefore especially useful when queries examine:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>MANY ROWS</span></span>
+<span class="line"><span>   +</span></span>
+<span class="line"><span>FEW COLUMNS</span></span></code></pre>
+<hr>
+<h2 id="2-row-groups">2. Row Groups</h2>
+<p>Parquet does not necessarily store an entire file’s column as one giant contiguous unit.</p>
+<p>First, the logical table is divided horizontally into <strong>row groups</strong>.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>┌────┬────────┬─────┐</span></span>
+<span class="line"><span>│ id │ name   │ age │</span></span>
+<span class="line"><span>├────┼────────┼─────┤</span></span>
+<span class="line"><span>│ 1  │ Alice  │ 28  │  ┐</span></span>
+<span class="line"><span>│ 2  │ Bob    │ 35  │  ├── Row Group 1</span></span>
+<span class="line"><span>│ 3  │ Carol  │ 42  │  ┘</span></span>
+<span class="line"><span>├────┼────────┼─────┤  ← horizontal boundary</span></span>
+<span class="line"><span>│ 4  │ Dan    │ 25  │  ┐</span></span>
+<span class="line"><span>│ 5  │ Eve    │ 31  │  ├── Row Group 2</span></span>
+<span class="line"><span>│ 6  │ Frank  │ 39  │  ┘</span></span>
+<span class="line"><span>└────┴────────┴─────┘</span></span></code></pre>
+<p>“Horizontal” describes how we divide the <strong>logical table</strong>.</p>
+<p>Inside each row group, the data is still organized by column:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>                ROW GROUP 1</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>          ┌──────────┼──────────┐</span></span>
+<span class="line"><span>          ▼          ▼          ▼</span></span>
+<span class="line"><span>         id         name       age</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>      [1,2,3]    [A,B,C]   [28,35,42]</span></span></code></pre>
+<blockquote>
+<p><strong>Row Group:</strong> A horizontal batch of rows whose contents are stored column-by-column.</p>
+</blockquote>
+<hr>
+<h2 id="3-column-chunks">3. Column Chunks</h2>
+<p>Inside a row group, each column becomes a <strong>column chunk</strong>.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>                    ROW GROUP 1</span></span>
+<span class="line"><span>                         │</span></span>
+<span class="line"><span>          ┌──────────────┼──────────────┐</span></span>
+<span class="line"><span>          ▼              ▼              ▼</span></span>
+<span class="line"><span>      id chunk       name chunk      age chunk</span></span>
+<span class="line"><span>       [1,2,3]        [A,B,C]       [28,35,42]</span></span></code></pre>
+<blockquote>
+<p><strong>Column Chunk:</strong> One column’s data within one row group.</p>
+</blockquote>
+<p>Therefore:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>3 Row Groups</span></span>
+<span class="line"><span>×</span></span>
+<span class="line"><span>4 Columns</span></span>
+<span class="line"><span>────────────</span></span>
+<span class="line"><span>12 Column Chunks</span></span></code></pre>
+<p>The same logical column has a different chunk in every row group:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>                  age</span></span>
+<span class="line"><span>                   │</span></span>
+<span class="line"><span>        ┌──────────┼──────────┐</span></span>
+<span class="line"><span>        ▼          ▼          ▼</span></span>
+<span class="line"><span>       RG1        RG2        RG3</span></span>
+<span class="line"><span>        │          │          │</span></span>
+<span class="line"><span>    age chunk  age chunk  age chunk</span></span></code></pre>
+<hr>
+<h2 id="4-pages">4. Pages</h2>
+<p>Column chunks can still be large, so Parquet divides them into <strong>pages</strong>.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>age COLUMN CHUNK</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ├── Page 1</span></span>
+<span class="line"><span>        ├── Page 2</span></span>
+<span class="line"><span>        ├── Page 3</span></span>
+<span class="line"><span>        └── Page 4</span></span></code></pre>
+<p>Our hierarchy is now:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>PARQUET FILE</span></span>
+<span class="line"><span>    │</span></span>
+<span class="line"><span>    └── ROW GROUP</span></span>
+<span class="line"><span>          │</span></span>
+<span class="line"><span>          └── COLUMN CHUNK</span></span>
+<span class="line"><span>                  │</span></span>
+<span class="line"><span>                  ├── PAGE</span></span>
+<span class="line"><span>                  ├── PAGE</span></span>
+<span class="line"><span>                  └── PAGE</span></span></code></pre>
+<p>Mental model:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Row Group</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>batch of rows</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Column Chunk</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>one column from that batch</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Page</span></span>
+<span class="line"><span>    ↓</span></span>
+<span class="line"><span>smaller unit inside the column chunk</span></span></code></pre>
+<hr>
+<h2 id="5-data-pages-and-dictionary-pages">5. Data Pages and Dictionary Pages</h2>
+<p>Two important page concepts are:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>PAGE</span></span>
+<span class="line"><span> │</span></span>
+<span class="line"><span> ├── Data Page</span></span>
+<span class="line"><span> │</span></span>
+<span class="line"><span> └── Dictionary Page</span></span></code></pre>
+<p>A <strong>data page</strong> contains encoded column data.</p>
+<p>Suppose:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>country</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>US</span></span>
+<span class="line"><span>US</span></span>
+<span class="line"><span>UK</span></span>
+<span class="line"><span>US</span></span>
+<span class="line"><span>IN</span></span>
+<span class="line"><span>UK</span></span>
+<span class="line"><span>US</span></span></code></pre>
+<p>Conceptually:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>country Column Chunk</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ├── Data Page 1</span></span>
+<span class="line"><span>        │     US</span></span>
+<span class="line"><span>        │     US</span></span>
+<span class="line"><span>        │     UK</span></span>
+<span class="line"><span>        │     US</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        └── Data Page 2</span></span>
+<span class="line"><span>              IN</span></span>
+<span class="line"><span>              UK</span></span>
+<span class="line"><span>              US</span></span></code></pre>
+<hr>
+<h2 id="6-dictionary-encoding">6. Dictionary Encoding</h2>
+<p>Repeated values can be expensive to store repeatedly.</p>
+<p>Instead of:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>US, US, UK, US, IN, UK, US</span></span></code></pre>
+<p>Parquet can construct a dictionary:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>0 → US</span></span>
+<span class="line"><span>1 → UK</span></span>
+<span class="line"><span>2 → IN</span></span></code></pre>
+<p>The data becomes:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>US  US  UK  US  IN  UK  US</span></span>
+<span class="line"><span>             ↓</span></span>
+<span class="line"><span>0   0   1   0   2   1   0</span></span></code></pre>
+<p>The column chunk now conceptually looks like:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>country COLUMN CHUNK</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ├── Dictionary Page</span></span>
+<span class="line"><span>        │      0 → US</span></span>
+<span class="line"><span>        │      1 → UK</span></span>
+<span class="line"><span>        │      2 → IN</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ├── Data Page</span></span>
+<span class="line"><span>        │      0 0 1 0</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        └── Data Page</span></span>
+<span class="line"><span>               2 1 0</span></span></code></pre>
+<p>Remember:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Dictionary Page</span></span>
+<span class="line"><span>       ↓</span></span>
+<span class="line"><span>dictionary values</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Data Page</span></span>
+<span class="line"><span>       ↓</span></span>
+<span class="line"><span>encoded references to those values</span></span></code></pre>
+<p>Dictionary encoding is particularly effective for low-cardinality or highly repetitive data.</p>
+<hr>
+<h2 id="7-plain-encoding-fallback">7. Plain-Encoding Fallback</h2>
+<p>Dictionary encoding is not always efficient.</p>
+<p>Consider unique identifiers:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>a81f...</span></span>
+<span class="line"><span>b72c...</span></span>
+<span class="line"><span>c93e...</span></span>
+<span class="line"><span>d11a...</span></span>
+<span class="line"><span>e57b...</span></span></code></pre>
+<p>A dictionary might become almost as large as the original data.</p>
+<p>A writer can therefore stop dictionary encoding and switch later pages to another encoding, commonly <code>PLAIN</code>.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>COLUMN CHUNK</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── Dictionary Page</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── Data Page</span></span>
+<span class="line"><span>│      dictionary encoded</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── Data Page</span></span>
+<span class="line"><span>│      dictionary encoded</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>│   dictionary becomes inefficient</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── Data Page</span></span>
+<span class="line"><span>│      PLAIN</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>└── Data Page</span></span>
+<span class="line"><span>       PLAIN</span></span></code></pre>
+<blockquote>
+<p>Do not assume one column chunk must use exactly one encoding for all its data pages.</p>
+</blockquote>
+<hr>
+<h2 id="8-file-footer-and-metadata">8. File Footer and Metadata</h2>
+<p>At the end of a Parquet file is its file metadata/footer.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>┌──────────────────────────────┐</span></span>
+<span class="line"><span>│         PARQUET FILE         │</span></span>
+<span class="line"><span>├──────────────────────────────┤</span></span>
+<span class="line"><span>│ Row Group 1                  │</span></span>
+<span class="line"><span>│   column chunks + pages      │</span></span>
+<span class="line"><span>├──────────────────────────────┤</span></span>
+<span class="line"><span>│ Row Group 2                  │</span></span>
+<span class="line"><span>│   column chunks + pages      │</span></span>
+<span class="line"><span>├──────────────────────────────┤</span></span>
+<span class="line"><span>│ Row Group 3                  │</span></span>
+<span class="line"><span>│   column chunks + pages      │</span></span>
+<span class="line"><span>├──────────────────────────────┤</span></span>
+<span class="line"><span>│                              │</span></span>
+<span class="line"><span>│ FILE METADATA / FOOTER       │</span></span>
+<span class="line"><span>│                              │</span></span>
+<span class="line"><span>│ • schema                     │</span></span>
+<span class="line"><span>│ • row-group metadata         │</span></span>
+<span class="line"><span>│ • column metadata            │</span></span>
+<span class="line"><span>│ • statistics                 │</span></span>
+<span class="line"><span>│ • offsets                    │</span></span>
+<span class="line"><span>│ • encodings                  │</span></span>
+<span class="line"><span>│ • compression information   │</span></span>
+<span class="line"><span>└──────────────────────────────┘</span></span></code></pre>
+<p>Think of the footer as the reader’s <strong>map of the file</strong>.</p>
+<hr>
+<h2 id="9-column-chunk-statistics">9. Column-Chunk Statistics</h2>
+<p>Parquet can store statistics describing a column chunk.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>age Column Chunk</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>values:</span></span>
+<span class="line"><span>[18, 22, 25, 31, 40]</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>statistics:</span></span>
+<span class="line"><span>min         = 18</span></span>
+<span class="line"><span>max         = 40</span></span>
+<span class="line"><span>null_count  = 0</span></span>
+<span class="line"><span>value_count = 5</span></span></code></pre>
+<p>Now imagine:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>             AGE</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>RG1       min=18  max=40</span></span>
+<span class="line"><span>RG2       min=41  max=65</span></span>
+<span class="line"><span>RG3       min=66  max=90</span></span></code></pre>
+<p>Query:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">WHERE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> age </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">></span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 70</span></span></code></pre>
+<p>The reader can reason:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>RG1   18 ─── 40      SKIP</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>RG2   41 ─── 65      SKIP</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>RG3   66 ───── 90    MAY MATCH</span></span>
+<span class="line"><span>                        │</span></span>
+<span class="line"><span>                        ▼</span></span>
+<span class="line"><span>                       READ</span></span></code></pre>
+<p>This allows <strong>row-group pruning</strong>.</p>
+<h3 id="important-statistics">Important Statistics</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Statistic</th><th>Meaning</th></tr></thead><tbody><tr><td><code>min</code></td><td>Lower bound / minimum</td></tr><tr><td><code>max</code></td><td>Upper bound / maximum</td></tr><tr><td><code>null_count</code></td><td>Number of nulls</td></tr><tr><td><code>value_count</code></td><td>Number of encoded values in the column chunk</td></tr></tbody></table>
+<p>For nested/repeated schemas, don’t automatically interpret <code>value_count</code> as simply the number of non-null SQL values.</p>
+<hr>
+<h2 id="10-statistics-truncation">10. Statistics Truncation</h2>
+<p>Numbers have small min/max representations:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>min = 18</span></span>
+<span class="line"><span>max = 90</span></span></code></pre>
+<p>Strings or binary values can be enormous.</p>
+<p>Instead of putting giant values into metadata, writers may use bounded/truncated statistics.</p>
+<p>Conceptually:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>actual value:</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>"watermelon-some-extremely-long-value........"</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>                 ↓</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>metadata bound:</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>"water..."</span></span></code></pre>
+<p>The actual truncation rules must preserve safe comparison bounds. It is <strong>not</strong> simply “cut both strings after N characters.”</p>
+<p>The goal is:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>keep metadata small</span></span>
+<span class="line"><span>       +</span></span>
+<span class="line"><span>retain useful skipping information</span></span></code></pre>
+<hr>
+<h2 id="11-bloom-filters">11. Bloom Filters</h2>
+<p>Min/max statistics have a limitation.</p>
+<p>Suppose:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>user_id chunk</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>min = 100</span></span>
+<span class="line"><span>max = 9,000,000</span></span></code></pre>
+<p>Query:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">WHERE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> user_id </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 472938</span></span></code></pre>
+<p>Because:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>100 ───────── 472938 ───────── 9,000,000</span></span></code></pre>
+<p>min/max cannot eliminate the chunk.</p>
+<p>A <strong>Bloom filter</strong> can help.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Column Chunk values</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ▼</span></span>
+<span class="line"><span>┌────────────────┐</span></span>
+<span class="line"><span>│  Bloom Filter  │</span></span>
+<span class="line"><span>└───────┬────────┘</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ▼</span></span>
+<span class="line"><span>     472938?</span></span></code></pre>
+<p>It can answer:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Definitely NOT present</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ▼</span></span>
+<span class="line"><span>       SKIP</span></span></code></pre>
+<p>or:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>MAYBE present</span></span>
+<span class="line"><span>        │</span></span>
+<span class="line"><span>        ▼</span></span>
+<span class="line"><span>continue checking</span></span></code></pre>
+<p>Bloom filters can produce <strong>false positives</strong>:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Bloom says MAYBE</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ├── actually exists</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      └── actually absent</span></span></code></pre>
+<p>But a correct Bloom filter does not produce false negatives:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Bloom says NO</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>definitely absent</span></span></code></pre>
+<p>Memory trick:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>min/max</span></span>
+<span class="line"><span>   ↓</span></span>
+<span class="line"><span>range filtering</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Bloom filter</span></span>
+<span class="line"><span>   ↓</span></span>
+<span class="line"><span>equality / point lookups</span></span></code></pre>
+<hr>
+<h2 id="12-page-index">12. Page Index</h2>
+<p>Column-chunk statistics operate at a coarse level.</p>
+<p>Suppose:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>age Column Chunk</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>overall:</span></span>
+<span class="line"><span>min=10</span></span>
+<span class="line"><span>max=50</span></span></code></pre>
+<p>Query:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">WHERE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> age </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">>=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 45</span></span></code></pre>
+<p>The entire chunk cannot be skipped.</p>
+<p>But its pages might look like:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Page 1    10–20</span></span>
+<span class="line"><span>Page 2    21–30</span></span>
+<span class="line"><span>Page 3    31–40</span></span>
+<span class="line"><span>Page 4    41–50</span></span></code></pre>
+<p>Only Page 4 could contain values ≥45.</p>
+<p>This is where the <strong>Page Index</strong> helps:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>             PAGE INDEX</span></span>
+<span class="line"><span>                 │</span></span>
+<span class="line"><span>        ┌────────┴────────┐</span></span>
+<span class="line"><span>        ▼                 ▼</span></span>
+<span class="line"><span>  Column Index       Offset Index</span></span></code></pre>
+<p>Memory trick:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Column Index</span></span>
+<span class="line"><span>     ↓</span></span>
+<span class="line"><span>WHAT is in the pages?</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Offset Index</span></span>
+<span class="line"><span>     ↓</span></span>
+<span class="line"><span>WHERE are the pages?</span></span></code></pre>
+<hr>
+<h2 id="13-column-index">13. Column Index</h2>
+<p>The Column Index provides page-level statistics/information.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>age COLUMN CHUNK</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>┌────────┬─────┬─────┐</span></span>
+<span class="line"><span>│        │ min │ max │</span></span>
+<span class="line"><span>├────────┼─────┼─────┤</span></span>
+<span class="line"><span>│ Page 1 │ 10  │ 20  │</span></span>
+<span class="line"><span>│ Page 2 │ 21  │ 30  │</span></span>
+<span class="line"><span>│ Page 3 │ 31  │ 40  │</span></span>
+<span class="line"><span>│ Page 4 │ 41  │ 50  │</span></span>
+<span class="line"><span>└────────┴─────┴─────┘</span></span></code></pre>
+<p>For:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">WHERE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> age </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">>=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 45</span></span></code></pre>
+<p>the reader gets:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Page 1   10–20   SKIP</span></span>
+<span class="line"><span>Page 2   21–30   SKIP</span></span>
+<span class="line"><span>Page 3   31–40   SKIP</span></span>
+<span class="line"><span>Page 4   41–50   MAY MATCH</span></span></code></pre>
+<p>So the Column Index answers:</p>
+<blockquote>
+<p><strong>Which pages might contain useful data?</strong></p>
+</blockquote>
+<hr>
+<h2 id="14-offset-index">14. Offset Index</h2>
+<p>After deciding that Page 4 matters, the reader needs to locate it.</p>
+<p>That’s the Offset Index’s job.</p>
+<p>Conceptually:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Page 1 → offset 10,000</span></span>
+<span class="line"><span>Page 2 → offset 14,000</span></span>
+<span class="line"><span>Page 3 → offset 18,000</span></span>
+<span class="line"><span>Page 4 → offset 22,000</span></span></code></pre>
+<p>Page locations contain information such as:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>offset</span></span>
+<span class="line"><span>compressed_page_size</span></span>
+<span class="line"><span>first_row_index</span></span></code></pre>
+<p>The relationship:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Column Index</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>"Page 4 might match"</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>Offset Index</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>"Page 4 is here"</span></span>
+<span class="line"><span>      │</span></span>
+<span class="line"><span>      ▼</span></span>
+<span class="line"><span>READ PAGE 4</span></span></code></pre>
+<p>Therefore:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Chunk statistics → skip large chunk/row group</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Column Index      → choose pages</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Offset Index      → locate pages</span></span></code></pre>
+<hr>
+<h2 id="15-physical-types-vs-logical-types">15. Physical Types vs Logical Types</h2>
+<p>So far we’ve discussed <strong>where data lives</strong>.</p>
+<p>Now:</p>
+<blockquote>
+<p>What does the stored data mean?</p>
+</blockquote>
+<p>Parquet has primitive/physical storage types such as:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>BOOLEAN</span></span>
+<span class="line"><span>INT32</span></span>
+<span class="line"><span>INT64</span></span>
+<span class="line"><span>FLOAT</span></span>
+<span class="line"><span>DOUBLE</span></span>
+<span class="line"><span>BYTE_ARRAY</span></span>
+<span class="line"><span>FIXED_LEN_BYTE_ARRAY</span></span>
+<span class="line"><span>...</span></span></code></pre>
+<p>Applications use richer concepts:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>DATE</span></span>
+<span class="line"><span>TIMESTAMP</span></span>
+<span class="line"><span>STRING</span></span>
+<span class="line"><span>DECIMAL</span></span>
+<span class="line"><span>UUID</span></span>
+<span class="line"><span>JSON</span></span>
+<span class="line"><span>...</span></span></code></pre>
+<p>Parquet combines physical representation with logical annotations.</p>
+<p>For example:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>birth_date</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── Physical type: INT32</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>└── Logical type: DATE</span></span></code></pre>
+<p>Conceptually:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>2026-09-16</span></span>
+<span class="line"><span>     │</span></span>
+<span class="line"><span>     ▼</span></span>
+<span class="line"><span>    DATE</span></span>
+<span class="line"><span>     │</span></span>
+<span class="line"><span>     ▼</span></span>
+<span class="line"><span>   INT32</span></span>
+<span class="line"><span>     │</span></span>
+<span class="line"><span>     ▼</span></span>
+<span class="line"><span>days since 1970-01-01</span></span></code></pre>
+<p>The physical type answers:</p>
+<blockquote>
+<p><strong>How is this stored?</strong></p>
+</blockquote>
+<p>The logical annotation answers:</p>
+<blockquote>
+<p><strong>How should I interpret it?</strong></p>
+</blockquote>
+<hr>
+<h2 id="16-logical-type-examples">16. Logical-Type Examples</h2>
+<h3 id="string">String</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>name</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── Physical: BYTE_ARRAY</span></span>
+<span class="line"><span>└── Logical:  STRING</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>"Alice"</span></span>
+<span class="line"><span>   ↓</span></span>
+<span class="line"><span>STRING</span></span>
+<span class="line"><span>   ↓</span></span>
+<span class="line"><span>BYTE_ARRAY</span></span></code></pre>
+<h3 id="decimal">Decimal</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>price</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── Physical: INT64</span></span>
+<span class="line"><span>└── Logical:</span></span>
+<span class="line"><span>      DECIMAL</span></span>
+<span class="line"><span>      precision=10</span></span>
+<span class="line"><span>      scale=2</span></span></code></pre>
+<p>A physical integer:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>12345</span></span></code></pre>
+<p>with scale <code>2</code> represents:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>123.45</span></span></code></pre>
+<p>Remember:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>Physical type</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>storage</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>Logical type</span></span>
+<span class="line"><span>      ↓</span></span>
+<span class="line"><span>meaning</span></span></code></pre>
+<hr>
+<h2 id="17-originaltype-vs-logicaltypeannotation">17. OriginalType vs LogicalTypeAnnotation</h2>
+<p>This distinction mostly comes from Parquet’s evolution.</p>
+<p>Older representations used converted types, commonly represented in APIs as <code>OriginalType</code>.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>OLDER</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>INT32</span></span>
+<span class="line"><span>  │</span></span>
+<span class="line"><span>  └── OriginalType.DATE</span></span></code></pre>
+<p>Modern Parquet uses richer logical-type annotations:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>NEWER</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>INT32</span></span>
+<span class="line"><span>  │</span></span>
+<span class="line"><span>  └── LogicalTypeAnnotation.DATE</span></span></code></pre>
+<p>The newer representation can express richer semantics.</p>
+<p>For example:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>TIMESTAMP</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── unit</span></span>
+<span class="line"><span>│    ├── MILLIS</span></span>
+<span class="line"><span>│    ├── MICROS</span></span>
+<span class="line"><span>│    └── NANOS</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>└── isAdjustedToUTC</span></span></code></pre>
+<p>There aren’t separate physical and logical values.</p>
+<p>There is one physical representation plus schema metadata describing its meaning:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>stored INT32</span></span>
+<span class="line"><span>     │</span></span>
+<span class="line"><span>     ▼</span></span>
+<span class="line"><span>    20712</span></span>
+<span class="line"><span>     │</span></span>
+<span class="line"><span>     │ schema says DATE</span></span>
+<span class="line"><span>     ▼</span></span>
+<span class="line"><span> interpreted as</span></span>
+<span class="line"><span> 2026-09-16</span></span></code></pre>
+<hr>
+<h2 id="18-field-ids">18. Field IDs</h2>
+<p>Schema fields normally have names:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>id</span></span>
+<span class="line"><span>name</span></span>
+<span class="line"><span>age</span></span></code></pre>
+<p>But names can change.</p>
+<p>Version 1:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>name</span></span></code></pre>
+<p>Version 2:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>full_name</span></span></code></pre>
+<p>How can a system know this was a rename rather than a completely different field?</p>
+<p>A Parquet schema field can have a <strong>Field ID</strong>.</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>name</span></span>
+<span class="line"><span>├── Field ID = 2</span></span>
+<span class="line"><span>└── STRING</span></span></code></pre>
+<p>After renaming:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>full_name</span></span>
+<span class="line"><span>├── Field ID = 2</span></span>
+<span class="line"><span>└── STRING</span></span></code></pre>
+<p>Therefore:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>OLD                         NEW</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>name                        full_name</span></span>
+<span class="line"><span>Field ID = 2  ───────────►  Field ID = 2</span></span></code></pre>
+<p>The name changed.</p>
+<p>The identity remained stable.</p>
+<p>This is particularly useful for <strong>schema evolution</strong>.</p>
+<h3 id="nested-example">Nested Example</h3>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>user</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── name          [ID 1]</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>├── address       [ID 2]</span></span>
+<span class="line"><span>│    ├── city     [ID 3]</span></span>
+<span class="line"><span>│    └── zip      [ID 4]</span></span>
+<span class="line"><span>│</span></span>
+<span class="line"><span>└── age           [ID 5]</span></span></code></pre>
+<p>A nested field can be renamed while preserving its identity.</p>
+<p>Field IDs are <strong>schema metadata</strong>. They are not repeated alongside every value.</p>
+<hr>
+<h1 id="19-putting-everything-together">19. Putting Everything Together</h1>
+<p>Consider:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="sql"><code><span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">SELECT</span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583"> name</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">FROM</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> users</span></span>
+<span class="line"><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">WHERE</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8"> age </span><span style="--shiki-light:#D73A49;--shiki-dark:#F97583">=</span><span style="--shiki-light:#005CC5;--shiki-dark:#79B8FF"> 35</span><span style="--shiki-light:#24292E;--shiki-dark:#E1E4E8">;</span></span></code></pre>
+<p>The reader can progressively eliminate unnecessary work:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>                    QUERY</span></span>
+<span class="line"><span>                 age = 35</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>                FILE FOOTER</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>             inspect schema</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>             column pruning</span></span>
+<span class="line"><span>              age + name only</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>          Column Chunk Statistics</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>              Which Row Groups?</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>           ┌─────────┼─────────┐</span></span>
+<span class="line"><span>           ▼         ▼         ▼</span></span>
+<span class="line"><span>          RG1       RG2       RG3</span></span>
+<span class="line"><span>          SKIP      KEEP      SKIP</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>                Bloom Filter</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                  MAYBE</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>                Column Index</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>              Which pages?</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>                  Page 3</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>                Offset Index</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>              Where is Page 3?</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>                 Read Page</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>          decompress + decode</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>                age = 35</span></span>
+<span class="line"><span>                     │</span></span>
+<span class="line"><span>                     ▼</span></span>
+<span class="line"><span>            matching name values</span></span></code></pre>
+<hr>
+<h1 id="20-the-optimization-ladder">20. The Optimization Ladder</h1>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>1. COLUMN PRUNING</span></span>
+<span class="line"><span>        ↓</span></span>
+<span class="line"><span>Don't read unnecessary columns</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>2. COLUMN-CHUNK STATISTICS</span></span>
+<span class="line"><span>        ↓</span></span>
+<span class="line"><span>Don't read unnecessary row groups</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>3. BLOOM FILTER</span></span>
+<span class="line"><span>        ↓</span></span>
+<span class="line"><span>Prove searched values are absent</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>4. COLUMN INDEX</span></span>
+<span class="line"><span>        ↓</span></span>
+<span class="line"><span>Don't read unnecessary pages</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>5. OFFSET INDEX</span></span>
+<span class="line"><span>        ↓</span></span>
+<span class="line"><span>Locate useful pages</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>6. ENCODING + COMPRESSION</span></span>
+<span class="line"><span>        ↓</span></span>
+<span class="line"><span>Store/read fewer bytes</span></span></code></pre>
+<p>Not every Parquet file contains Bloom filters or page indexes, and not every reader uses every optional optimization.</p>
+<p>The fundamental structure remains:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>FILE</span></span>
+<span class="line"><span> │</span></span>
+<span class="line"><span> ├── ROW GROUP</span></span>
+<span class="line"><span> │      │</span></span>
+<span class="line"><span> │      └── COLUMN CHUNK</span></span>
+<span class="line"><span> │              │</span></span>
+<span class="line"><span> │              └── PAGE</span></span>
+<span class="line"><span> │</span></span>
+<span class="line"><span> └── FOOTER / METADATA</span></span></code></pre>
+<hr>
+<h1 id="final-mental-model">Final Mental Model</h1>
+<p>If you remember only one diagram, use this:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>                       PARQUET FILE</span></span>
+<span class="line"><span>                            │</span></span>
+<span class="line"><span>              ┌─────────────┴─────────────┐</span></span>
+<span class="line"><span>              │                           │</span></span>
+<span class="line"><span>             DATA                       FOOTER</span></span>
+<span class="line"><span>              │                           │</span></span>
+<span class="line"><span>          ROW GROUP                       ├── Schema</span></span>
+<span class="line"><span>              │                           │     │</span></span>
+<span class="line"><span>         COLUMN CHUNK                     │     ├── name</span></span>
+<span class="line"><span>              │                           │     ├── Field ID</span></span>
+<span class="line"><span>       ┌──────┴──────┐                    │     ├── physical type</span></span>
+<span class="line"><span>       │             │                    │     └── logical type</span></span>
+<span class="line"><span>       ▼             ▼                    │</span></span>
+<span class="line"><span> Dictionary       Data Pages              └── Row Group /</span></span>
+<span class="line"><span>    Page                                      Column metadata</span></span>
+<span class="line"><span>                                                   │</span></span>
+<span class="line"><span>                                                   ├── min</span></span>
+<span class="line"><span>                                                   ├── max</span></span>
+<span class="line"><span>                                                   ├── null_count</span></span>
+<span class="line"><span>                                                   └── value_count</span></span>
+<span class="line"><span></span></span>
+<span class="line"><span>                    COLUMN CHUNK</span></span>
+<span class="line"><span>                          │</span></span>
+<span class="line"><span>               ┌──────────┼──────────┐</span></span>
+<span class="line"><span>               ▼          ▼          ▼</span></span>
+<span class="line"><span>            Statistics   Bloom    Page Index</span></span>
+<span class="line"><span>                                    │</span></span>
+<span class="line"><span>                             ┌──────┴──────┐</span></span>
+<span class="line"><span>                             ▼             ▼</span></span>
+<span class="line"><span>                       Column Index   Offset Index</span></span>
+<span class="line"><span>                             │             │</span></span>
+<span class="line"><span>                             ▼             ▼</span></span>
+<span class="line"><span>                       WHAT pages?    WHERE pages?</span></span></code></pre>
+<hr>
+<h1 id="cheat-sheet">Cheat Sheet</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Concept</th><th>Remember it as</th></tr></thead><tbody><tr><td><strong>Row Group</strong></td><td>Horizontal batch of rows</td></tr><tr><td><strong>Column Chunk</strong></td><td>One column within one row group</td></tr><tr><td><strong>Page</strong></td><td>Smaller storage unit inside a column chunk</td></tr><tr><td><strong>Data Page</strong></td><td>Encoded column data</td></tr><tr><td><strong>Dictionary Page</strong></td><td>Dictionary values</td></tr><tr><td><strong>Dictionary Encoding</strong></td><td>Replace repeated values with compact dictionary IDs</td></tr><tr><td><strong>PLAIN</strong></td><td>Direct representation; useful when dictionary encoding isn’t appropriate</td></tr><tr><td><strong>Footer</strong></td><td>Map/schema/metadata describing the file</td></tr><tr><td><strong>min / max</strong></td><td>Range-based skipping</td></tr><tr><td><strong>null_count</strong></td><td>Number of nulls represented by statistics</td></tr><tr><td><strong>Bloom Filter</strong></td><td>“Definitely absent” or “maybe present”</td></tr><tr><td><strong>Column Index</strong></td><td>What is inside individual pages?</td></tr><tr><td><strong>Offset Index</strong></td><td>Where are those pages?</td></tr><tr><td><strong>Physical Type</strong></td><td>How bytes are represented</td></tr><tr><td><strong>Logical Type</strong></td><td>What those bytes mean</td></tr><tr><td><strong>OriginalType</strong></td><td>Older converted/logical type representation</td></tr><tr><td><strong>LogicalTypeAnnotation</strong></td><td>Newer, richer logical-type representation</td></tr><tr><td><strong>Field ID</strong></td><td>Stable schema-field identity</td></tr></tbody></table>
+<hr>
+<h1 id="the-one-idea-behind-parquet">The One Idea Behind Parquet</h1>
+<p>Most of Parquet’s design ultimately helps a query engine answer:</p>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>"Can I avoid reading this?"</span></span></code></pre>
+<pre class="astro-code astro-code-themes github-light github-dark" style="--shiki-light:#24292e;--shiki-dark:#e1e4e8;--shiki-light-bg:#fff;--shiki-dark-bg:#24292e; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>        FILE</span></span>
+<span class="line"><span>         │</span></span>
+<span class="line"><span>         ▼</span></span>
+<span class="line"><span>      COLUMN? ── no ──► SKIP</span></span>
+<span class="line"><span>         │</span></span>
+<span class="line"><span>        yes</span></span>
+<span class="line"><span>         ▼</span></span>
+<span class="line"><span>    ROW GROUP? ─ no ──► SKIP</span></span>
+<span class="line"><span>         │</span></span>
+<span class="line"><span>        yes</span></span>
+<span class="line"><span>         ▼</span></span>
+<span class="line"><span>       PAGE? ─── no ──► SKIP</span></span>
+<span class="line"><span>         │</span></span>
+<span class="line"><span>        yes</span></span>
+<span class="line"><span>         ▼</span></span>
+<span class="line"><span>       READ</span></span>
+<span class="line"><span>         │</span></span>
+<span class="line"><span>         ▼</span></span>
+<span class="line"><span>      DECODE</span></span>
+<span class="line"><span>         │</span></span>
+<span class="line"><span>         ▼</span></span>
+<span class="line"><span>      RESULT</span></span></code></pre>
+<p>That is the core mental model:</p>
+<blockquote>
+<p><strong>Parquet organizes data and metadata so analytical engines can read as little data as possible.</strong></p>
+</blockquote>
+<p>NOTE: Written by AI, Prompted by Human</p> </div> </article>  </main> </body></html> 
